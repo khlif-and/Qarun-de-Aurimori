@@ -1,0 +1,74 @@
+---
+---
+
+<section class="w-full bg-[#fbfcfd] py-24 md:py-32 px-6 flex justify-center" id="works">
+  <div class="max-w-[1200px] w-full flex flex-col gap-12">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div class="flex flex-col gap-3">
+        <span class="text-[#3cbce6] text-xs font-bold tracking-[0.2em] uppercase">Portfolio</span>
+        <h2 class="text-4xl md:text-5xl text-[#1e293b] font-serif" style="font-family: 'Playfair Display', serif;">
+          Selected Works
+        </h2>
+      </div>
+      <a href="/archive" class="group flex items-center gap-2 text-sm font-bold text-[#1e293b] hover:text-[#3cbce6] transition-colors pb-1">
+        View Archive 
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Asymmetrical Grid Gallery (Refactored to robust 2-column flex layout) -->
+    <div class="flex flex-col md:flex-row gap-6 md:gap-8 w-full mt-4">
+      
+      <!-- Left Column (Skyscraper & Dark Architecture) -->
+      <div class="flex flex-col gap-6 md:gap-8 w-full md:w-[45%]">
+        <!-- Item 1: Tall Skyscraper -->
+        <div class="group overflow-hidden rounded-xl bg-slate-100 relative cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 h-[450px] md:h-[650px] w-full">
+          <img 
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+            alt="Modern skyscraper architectural detail" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+        </div>
+
+        <!-- Item 3: Dark Concrete Architecture -->
+        <div class="group overflow-hidden rounded-xl bg-slate-100 relative cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 h-[350px] md:h-[400px] w-full">
+          <img 
+            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2000&auto=format&fit=crop" 
+            alt="Dark concrete architecture curves" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+        </div>
+      </div>
+
+      <!-- Right Column (White Room & Cabin) -->
+      <div class="flex flex-col gap-6 md:gap-8 w-full md:w-[55%] md:pt-16">
+        <!-- Item 2: White Minimalist Room -->
+        <div class="group overflow-hidden rounded-xl bg-slate-100 relative cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 h-[350px] md:h-[450px] w-full">
+          <img 
+            src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" 
+            alt="Minimalist room with light shadows" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+        </div>
+
+        <!-- Item 4: Cabin on Green Hill -->
+        <div class="group overflow-hidden rounded-xl bg-slate-100 relative cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 h-[400px] md:h-[550px] w-full">
+          <img 
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop" 
+            alt="Moody cabin on a green hill with fog" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

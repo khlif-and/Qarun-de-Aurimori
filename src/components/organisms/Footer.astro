@@ -1,0 +1,26 @@
+---
+import Logo from '../atoms/Logo.astro';
+---
+
+<footer class="w-full bg-white py-12 px-6 md:px-16 flex justify-center border-t border-slate-100">
+  <div class="max-w-[1400px] w-full flex flex-col lg:flex-row items-center justify-between gap-10">
+    
+    <!-- Left: Logo (Reusing the Atom) -->
+    <div class="transform scale-75 origin-center lg:origin-left -ml-4 lg:-ml-8 opacity-90 hover:opacity-100 transition-opacity">
+      <Logo />
+    </div>
+
+    <!-- Center: Social Links -->
+    <div class="flex items-center gap-10 text-[15px] font-semibold text-[#1e293b]">
+      <a href="#instagram" class="hover:text-[#3cbce6] transition-colors">Instagram</a>
+      <a href="#behance" class="hover:text-[#3cbce6] transition-colors">Behance</a>
+      <a href="#linkedin" class="hover:text-[#3cbce6] transition-colors">LinkedIn</a>
+    </div>
+
+    <!-- Right: Copyright -->
+    <div class="text-[#94a3b8] text-xs md:text-[13px] font-medium text-center lg:text-right">
+      &copy; 2024 Qarun de Aurimori. All rights reserved.
+    </div>
+
+  </div>
+</footer>

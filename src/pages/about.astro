@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/organisms/Footer.astro';
+import SensorySection from '../components/organisms/SensorySection.astro';
+import EvolutionSection from '../components/organisms/EvolutionSection.astro';
+import SanctuarySection from '../components/organisms/SanctuarySection.astro';
+import VisualFragments from '../components/organisms/VisualFragments.astro';
+---
+
+<Layout>
+  <!-- Main Content Wrapper with Padding for Navbar Offset -->
+  <main class="min-h-screen">
+    
+    <!-- Hero Header (Redesigned) -->
+    <section class="w-full bg-[#fbfcfd] pt-32 pb-20 md:pt-40 md:pb-32 px-6 flex justify-center relative overflow-hidden">
+      <!-- Ambient Glow Decor -->
+      <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-sky-50 rounded-full blur-[100px] opacity-60"></div>
+      <div class="absolute top-[10%] right-[10%] w-[300px] h-[300px] bg-sky-100/40 rounded-full blur-[100px] opacity-50"></div>
+
+      <div class="max-w-[1100px] w-full flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20 relative z-10">
+        
+        <!-- Left: Text Content -->
+        <div class="flex flex-col gap-6 md:w-[55%]">
+          <h1 class="text-5xl md:text-[64px] lg:text-[72px] leading-[1.05] font-serif tracking-tight" style="font-family: 'Playfair Display', serif;">
+            <span class="text-[#1e293b] italic">Crafting spaces</span><br/>
+            <span class="text-[#3cbce6] not-italic">beyond the<br/>screen.</span>
+          </h1>
+          <p class="text-[#64748b] text-[16px] md:text-[17px] leading-[1.8] max-w-[420px] font-medium mt-2" style="font-family: 'Inter', sans-serif;">
+            Qarun de Aurimori is a visionary in the realm of digital architecture and visual storytelling, blending technical precision with ethereal atmosphere.
+          </p>
+        </div>
+
+        <!-- Right: Image Showcase -->
+        <div class="w-full md:w-[45%] flex justify-center md:justify-end mt-8 md:mt-0">
+          <div class="relative w-full max-w-[480px] aspect-square md:aspect-[4/4.5] rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/60 transform hover:scale-[1.02] transition-transform duration-700">
+            <!-- Using a moody architectural placeholder from Unsplash -->
+            <img 
+              src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1000&auto=format&fit=crop" 
+              alt="Moody architectural silhouette at sunset" 
+              class="w-full h-full object-cover"
+            />
+            <!-- Subtle gradient overlay to enhance dark dramatic feel -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- The Narrative Section -->
+    <section class="w-full bg-[#f8fafc] py-24 md:py-32 px-6 flex justify-center border-t border-slate-100/50">
+      <div class="max-w-[800px] w-full flex flex-col items-center text-center">
+        
+        <span class="text-[#3cbce6] text-xs font-bold tracking-[0.25em] uppercase mb-4">The Narrative</span>
+        
+        <h2 class="text-4xl md:text-[42px] lg:text-5xl text-[#1e293b] font-serif mb-6" style="font-family: 'Playfair Display', serif;">
+          A journey through light and form
+        </h2>
+
+        <div class="w-16 h-[2px] bg-[#c1e8f9] mb-10"></div>
+
+        <p class="text-[#475569] text-[18px] md:text-[21px] font-semibold italic leading-[1.7] md:leading-[1.8] max-w-[750px] mb-8 px-4" style="font-family: 'Inter', sans-serif;">
+          "I have always believed that digital environments shouldn't just be seen; they should be felt. My work is an exploration of how light interacts with geometry to create moments of profound stillness."
+        </p>
+
+        <p class="text-[#64748b] text-[15px] md:text-[17px] leading-[1.9] max-w-[750px] font-medium px-4" style="font-family: 'Inter', sans-serif;">
+          With a background rooted in the intersection of structural form and ethereal light, Qarun crafts spaces that transcend the physical constraints of digital media. Each project is a deliberate orchestration of shadow, material, and perspective, designed to evoke a sense of architectural depth and meditative calm.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- Sensory Section -->
+    <SensorySection />
+    
+    <!-- Evolution Section -->
+    <EvolutionSection />
+
+    <!-- Sanctuary Section -->
+    <SanctuarySection />
+
+    <!-- Visual Fragments Section -->
+    <VisualFragments />
+
+  </main>
+  
+  <Footer />
+</Layout>

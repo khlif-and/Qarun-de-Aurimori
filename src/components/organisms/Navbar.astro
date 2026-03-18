@@ -1,0 +1,25 @@
+---
+import Logo from '../atoms/Logo.astro';
+import NavLink from '../atoms/NavLink.astro';
+import Button from '../atoms/Button.astro';
+---
+
+<header class="w-full bg-[#f8fafc]">
+  <div class="max-w-[1200px] mx-auto px-6 h-[80px] flex items-center justify-between">
+    <!-- Logo section -->
+    <Logo />
+    
+    <!-- Navigation Links -->
+    <nav class="hidden md:flex items-center gap-8">
+      <NavLink href="/philosophy">Philosophy</NavLink>
+      <NavLink href="/about">About</NavLink>
+      <NavLink href="/services">Services</NavLink>
+      <NavLink href="/contact">Contact</NavLink>
+    </nav>
+    
+    <!-- CTA Button -->
+    <div class="flex items-center">
+      <Button href="/inquire">Inquire</Button>
+    </div>
+  </div>
+</header>
