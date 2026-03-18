@@ -1,114 +1,62 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Footer from '../components/organisms/Footer.astro';
-
-const projects = [
-  {
-    title: "The Ethereal Pavilion",
-    category: "Architecture",
-    year: "2023",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    title: "Monolithic Silence",
-    category: "Interior Design",
-    year: "2023",
-    image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    title: "Shadow & Light",
-    category: "Photography",
-    year: "2022",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    title: "The Foggy Cabin",
-    category: "Visualization",
-    year: "2022",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    title: "Brutalist Dream",
-    category: "Architecture",
-    year: "2021",
-    image: "https://images.unsplash.com/photo-1518005020453-1bb7470fe92c?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    title: "Celestial Atrium",
-    category: "Interior",
-    year: "2021",
-    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-     title: "Obsidian Heights",
-     category: "Commercial",
-     year: "2020",
-     image: "https://images.unsplash.com/photo-1449156059431-789c9d217364?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-     title: "The Silver Peak",
-     category: "Nature Art",
-     year: "2019",
-     image: "https://images.unsplash.com/photo-1434394354979-a235cd36269d?q=80&w=1000&auto=format&fit=crop"
-  }
-];
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/organisms/Footer.astro";
+import ArchivesSection from "../components/organisms/Archives/ArchivesSection.astro";
 ---
 
 <Layout>
   <main class="min-h-screen pt-40 pb-20 md:pb-32 px-6">
-    <div class="max-w-[1200px] mx-auto">
-      
-      <!-- Page Header -->
-      <header class="flex flex-col gap-6 mb-20 md:mb-28">
-        <span class="text-[#3cbce6] text-xs font-bold tracking-[0.25em] uppercase">Chronicles</span>
-        <h1 class="text-5xl md:text-7xl lg:text-8xl text-[#1e293b] font-serif leading-none tracking-tight" style="font-family: 'Playfair Display', serif;">
-          Project Archive
+    <div class="max-w-6xl mx-auto w-full">
+      <div class="max-w-4xl">
+        <h1
+          class="text-6xl md:text-8xl lg:text-[110px] text-[#1e293b] mb-8 tracking-tight leading-[1.1] italic transition-all"
+          style="font-family: 'Playfair Display', serif;"
+        >
+          Selected Archives
         </h1>
-        <p class="text-slate-500 text-lg md:text-xl font-light max-w-xl leading-relaxed mt-4">
-          A comprehensive collection of explorations, completed monuments, and ongoing research from the AuriMori atelier.
+
+        <p
+          class="text-slate-500 text-[17px] md:text-[19px] leading-[1.7] font-light mb-16 md:mb-24 max-w-[650px]"
+        >
+          Exploring the silent intersection where digital whispers meet physical
+          resonance.<br class="hidden sm:block" />
+          A curated collection of spatial inquiries and ethereal structures.
         </p>
-      </header>
 
-      <!-- Category Filter (Aesthetics only for now) -->
-      <div class="flex flex-wrap gap-x-8 gap-y-4 border-b border-slate-100 pb-8 mb-16">
-        <button class="text-[#1e293b] font-bold text-sm tracking-widest uppercase border-b-2 border-[#1e293b] pb-2">All Works</button>
-        <button class="text-slate-400 font-bold text-sm tracking-widest uppercase hover:text-[#3cbce6] transition-colors pb-2">Architecture</button>
-        <button class="text-slate-400 font-bold text-sm tracking-widest uppercase hover:text-[#3cbce6] transition-colors pb-2">Interior</button>
-        <button class="text-slate-400 font-bold text-sm tracking-widest uppercase hover:text-[#3cbce6] transition-colors pb-2">Photography</button>
-        <button class="text-slate-400 font-bold text-sm tracking-widest uppercase hover:text-[#3cbce6] transition-colors pb-2">Archive</button>
-      </div>
-
-      <!-- Archive Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-        {projects.map((project) => (
-          <div class="group cursor-pointer flex flex-col gap-6">
-            <!-- Image Frame -->
-            <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 shadow-sm hover:shadow-2xl transition-all duration-700">
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-              />
-              <!-- Subtle top gradient -->
-              <div class="absolute inset-0 bg-gradient-to-b from-black/5 to-transparent"></div>
-            </div>
-            
-            <!-- Metadata -->
-            <div class="flex flex-col gap-2">
-              <div class="flex justify-between items-center text-[10px] md:text-xs font-bold tracking-widest uppercase text-slate-400">
-                <span>{project.category}</span>
-                <span>{project.year}</span>
-              </div>
-              <h3 class="text-2xl md:text-3xl text-[#1e293b] font-serif group-hover:text-[#3cbce6] transition-colors duration-300" style="font-family: 'Playfair Display', serif;">
-                {project.title}
-              </h3>
-            </div>
+        <div class="w-full">
+          <div
+            class="flex items-center gap-8 md:gap-12 overflow-x-auto pb-4 border-b border-[#e2e8f0]"
+          >
+            <a
+              href="#"
+              class="block text-xs font-bold tracking-[0.2em] text-[#3cbce6] uppercase whitespace-nowrap"
+            >
+              All Projects
+            </a>
+            <a
+              href="#"
+              class="block text-xs font-medium tracking-[0.2em] text-slate-400 hover:text-slate-600 uppercase transition-colors whitespace-nowrap"
+            >
+              Digital
+            </a>
+            <a
+              href="#"
+              class="block text-xs font-medium tracking-[0.2em] text-slate-400 hover:text-slate-600 uppercase transition-colors whitespace-nowrap"
+            >
+              Spatial
+            </a>
+            <a
+              href="#"
+              class="block text-xs font-medium tracking-[0.2em] text-slate-400 hover:text-slate-600 uppercase transition-colors whitespace-nowrap"
+            >
+              Conceptual
+            </a>
           </div>
-        ))}
+        </div>
       </div>
-
     </div>
+    <ArchivesSection />
   </main>
-  
+
   <Footer />
 </Layout>

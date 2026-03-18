@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/organisms/Footer.astro";
+import bannerBg from "../assets/banner_2.jpg";
+import ConceptMa from "../components/organisms/Philosophy/ConceptMa.astro";
+import TheSensoryApproachSection from "../components/organisms/Philosophy/TheSensoryApproachSection.astro";
+import OrganicMinimalism from "../components/organisms/Philosophy/OrganicMinimalism.astro";
+import DesigningManifestoSection from "../components/organisms/Philosophy/DesigningManifestoSection.astro";
+---
+
+<Layout>
+  <main>
+    <section
+      class="relative w-full min-h-[calc(100vh-80px)] flex flex-col items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={`background-image: url('${bannerBg.src}');`}
+    >
+      <div class="absolute inset-0 bg-[#1f2122]/70 z-0"></div>
+
+      <div
+        class="absolute top-[5%] left-[10%] w-[600px] h-[800px] bg-slate-300/5 rounded-full filter blur-[120px] mix-blend-screen opacity-60 z-0"
+      >
+      </div>
+      <div
+        class="absolute bottom-[-10%] right-[5%] w-[500px] h-[700px] bg-slate-400/5 rounded-[40%] filter blur-[140px] mix-blend-screen opacity-50 transform rotate-45 z-0"
+      >
+      </div>
+
+      <div
+        class="relative z-10 flex flex-col items-center px-6 max-w-4xl mx-auto text-center mt-[-40px]"
+      >
+        <h1
+          class="text-[2.5rem] md:text-6xl lg:text-[76px] text-white mb-10 tracking-tight leading-[1.1] transition-all"
+          style="font-family: 'Playfair Display', serif;"
+        >
+          <span class="italic font-light">The Philosophy</span> of de<br
+            class="hidden md:block"
+          />
+          Aurimori: <span class="italic font-normal"
+            >Where Stillness<br class="hidden md:block" /> Meets Structure.</span
+          >
+        </h1>
+
+        <div class="w-10 h-[2px] bg-[#3cbce6] mb-8 opacity-70"></div>
+
+        <p
+          class="text-[9px] md:text-[11px] font-bold tracking-[0.25em] md:tracking-[0.35em] text-slate-300 uppercase"
+        >
+          Embracing the void to define the essence of form.
+        </p>
+      </div>
+    </section>
+
+    <ConceptMa />
+    <TheSensoryApproachSection />
+    <OrganicMinimalism />
+    <DesigningManifestoSection />
+  </main>
+
+  <Footer />
+</Layout>
