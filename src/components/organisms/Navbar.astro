@@ -4,7 +4,7 @@ import NavLink from '../atoms/NavLink.astro';
 import Button from '../atoms/Button.astro';
 ---
 
-<header class="w-full bg-[#f8fafc]">
+<header id="navbar" class="w-full fixed top-0 left-0 z-50" style="transition: background-color 0.1s ease-out;">
   <div class="max-w-[1200px] mx-auto px-6 h-[80px] flex items-center justify-between">
     <!-- Logo section -->
     <Logo />
@@ -23,3 +23,26 @@ import Button from '../atoms/Button.astro';
     </div>
   </div>
 </header>
+
+<script>
+const navbar = document.getElementById('navbar');
+const bannerHeight = 1200; // Banner height in pixels
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  // Calculate opacity: 0 at top, gradually increases to 1 by bannerHeight
+  const opacity = Math.min(scrolled / bannerHeight, 1);
+  
+  navbar!.style.backgroundColor = `rgba(248, 250, 252, ${opacity})`;
+  
+  // Text color transition: white (0) -> black (1)
+  const textElements = document.querySelectorAll('.navbar-text');
+  textElements.forEach(el => {
+    // Interpolate between white (RGB 255,255,255) and dark (RGB 26,32,44)
+    const r = Math.round(255 - (255 - 26) * opacity);
+    const g = Math.round(255 - (255 - 32) * opacity);
+    const b = Math.round(255 - (255 - 44) * opacity);
+    (el as HTMLElement).style.color = `rgb(${r}, ${g}, ${b})`;
+  });
+});
+</script>
