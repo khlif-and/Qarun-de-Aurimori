@@ -1,0 +1,180 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/organisms/Footer.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { id: "the-silence-of-stone" } },
+  ];
+}
+---
+
+<Layout>
+  <div class="flex flex-col min-h-screen">
+    <header class="w-full bg-[#f8f9fb] py-6 px-8 md:px-12 lg:px-20 z-50">
+      <a href="/Journal/Journal" class="inline-flex items-center gap-3 text-[#5a677a] hover:text-[#161f33] transition-colors text-[13px] md:text-[14px]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Journal
+      </a>
+    </header>
+
+    <main class="w-full">
+      <section class="relative w-full h-[calc(100vh-76px)] flex flex-col items-center justify-center overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2000&auto=format&fit=crop"
+          alt="The Silence of Stone"
+          class="absolute inset-0 w-full h-full object-cover z-0"
+        />
+        
+        <div class="absolute inset-0 bg-[#111827]/70 z-10"></div>
+        
+        <div class="relative z-20 flex flex-col items-center text-center px-6 max-w-4xl mx-auto w-full">
+          <span class="text-[10px] md:text-[11px] font-bold tracking-[0.3em] text-slate-300 uppercase mb-6 md:mb-8">
+            Architecture & Void
+          </span>
+          
+          <h1
+            class="text-5xl md:text-6xl lg:text-[80px] text-white mb-6 md:mb-8 tracking-tight leading-[1.1]"
+            style="font-family: 'Playfair Display', serif;"
+          >
+            The Silence of Stone
+          </h1>
+          
+          <p 
+            class="text-[17px] md:text-[22px] text-slate-200 italic font-light mb-10 md:mb-12 max-w-2xl leading-relaxed"
+            style="font-family: 'Playfair Display', serif;"
+          >
+            A study on the resonance between the void and the solid within modern minimalist forms.
+          </p>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-8 md:w-16 h-[1px] bg-slate-400/50"></div>
+            <span class="text-[9px] md:text-[10px] font-bold tracking-[0.2em] text-slate-300 uppercase">
+              October 24, 2023
+            </span>
+            <div class="w-8 md:w-16 h-[1px] bg-slate-400/50"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="w-full bg-[#f8f9fb] py-24 md:py-32 px-6 flex justify-center">
+        <div class="max-w-[1200px] w-full flex flex-col items-center">
+          <div class="max-w-[800px] w-full flex flex-col gap-16 md:gap-24">
+            
+            <p class="text-[#4b5563] text-xl md:text-2xl font-serif leading-relaxed" style="font-family: 'Playfair Display', serif;">
+              <span class="text-7xl md:text-8xl font-serif text-[#3cbce6] float-left mr-4 leading-[0.8] pt-2" style="font-family: 'Playfair Display', serif;">T</span>
+              o encounter stone is to encounter a clock that measures time in millennia. In the quiet halls of modern architecture, the density of concrete and granite serves as an anchor for the spirit, creating a dialogue with the invisible air that fills the spaces in between.
+            </p>
+
+            <div class="flex flex-col gap-8 md:gap-10 md:pl-8">
+              <div class="flex items-start gap-4 md:gap-6">
+                <span class="text-[#3cbce6] text-[13px] font-bold mt-2 md:mt-3">01</span>
+                <h3 class="text-3xl md:text-[40px] font-serif text-[#1e293b] leading-tight" style="font-family: 'Playfair Display', serif;">
+                  The Inquiry
+                </h3>
+              </div>
+
+              <div class="flex flex-col gap-8 md:gap-10 pl-[38px] md:pl-[44px]">
+                <p class="text-[#64748b] text-[16px] md:text-[18px] leading-[1.8] font-light">
+                  What does it mean for a structure to be "quiet"? We often associate silence with the absence of noise, but in design, silence is an active presence. It is the weight of a cantilevered slab, the sharp definition of a shadow against a raw surface, and the way light seems to slow down as it moves across a textured wall.
+                </p>
+                <p class="text-[#64748b] text-[16px] md:text-[18px] leading-[1.8] font-light">
+                  Our investigation began at the Aurimori Sanctuary, where the materials are reduced to their most essential states. Here, the stone doesn't just enclose space; it breathes with it.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-col w-full mt-4">
+              <img 
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" 
+                alt="Light refraction across raw concrete" 
+                class="w-full aspect-[16/10] object-cover"
+              />
+              <p class="text-center text-[#8ba4b5] text-[9px] md:text-[10px] font-bold tracking-[0.25em] uppercase mt-6 md:mt-8">
+                FIG 1.2 — LIGHT REFRACTION ACROSS RAW CONCRETE TEXTURES AT MIDDAY.
+              </p>
+            </div>
+
+            <div class="w-full py-16 md:py-20 border-t border-b border-[#e2e8f0] flex justify-center mt-2">
+              <p class="text-[22px] md:text-[28px] text-[#1e293b] italic text-center leading-relaxed max-w-[650px]" style="font-family: 'Playfair Display', serif;">
+                "The stone does not demand attention; it waits for the observer to find stillness within its permanence."
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-8 md:gap-10 md:pl-8">
+              <div class="flex items-start gap-4 md:gap-6">
+                <span class="text-[#3cbce6] text-[13px] font-bold mt-2 md:mt-3">02</span>
+                <h3 class="text-3xl md:text-[40px] font-serif text-[#1e293b] leading-tight" style="font-family: 'Playfair Display', serif;">
+                  Atmospheric Study
+                </h3>
+              </div>
+
+              <div class="flex flex-col gap-8 md:gap-10 pl-[38px] md:pl-[44px]">
+                <p class="text-[#64748b] text-[16px] md:text-[18px] leading-[1.8] font-light">
+                  Atmosphere is the byproduct of constraint. By limiting the palette to earth tones and mineral textures, the environment begins to speak through temperature and tactility. During our study, we observed how the stone retained the memory of the sun long after twilight had fallen.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full py-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" 
+                    alt="Stone surface texture" 
+                    class="w-full aspect-square object-cover grayscale"
+                  />
+                  <img 
+                    src="https://images.unsplash.com/photo-1600607688969-a5bfcd64bd40?q=80&w=800&auto=format&fit=crop" 
+                    alt="Minimalist interior with light" 
+                    class="w-full aspect-square object-cover grayscale"
+                  />
+                </div>
+
+                <p class="text-[#64748b] text-[16px] md:text-[18px] leading-[1.8] font-light">
+                  This thermal dialogue is as much a part of the architecture as the visual lines. It creates a cocoon-like effect that isolates the dweller from the frantic pace of the external world.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-8 md:gap-10 md:pl-8 mt-2">
+              <div class="flex items-start gap-4 md:gap-6">
+                <span class="text-[#3cbce6] text-[13px] font-bold mt-2 md:mt-3">03</span>
+                <h3 class="text-3xl md:text-[40px] font-serif text-[#1e293b] leading-tight" style="font-family: 'Playfair Display', serif;">
+                  Closing Thoughts
+                </h3>
+              </div>
+
+              <div class="flex flex-col gap-8 md:gap-10 pl-[38px] md:pl-[44px]">
+                <p class="text-[#64748b] text-[16px] md:text-[18px] leading-[1.8] font-light">
+                  Ultimately, 'The Silence of Stone' is not about the material itself, but about the mental state it facilitates. In the presence of something so unmoving, our own transient thoughts find a place to rest. We build with stone not just to survive the weather, but to survive the noise of our own era.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="w-full bg-[#f8f9fb] pb-24 md:pb-32 px-6 flex justify-center">
+        <div class="max-w-[800px] w-full flex flex-col items-center">
+          <div class="w-full h-[1px] bg-[#e2e8f0] mb-16 md:mb-20"></div>
+          
+          <div class="flex flex-col items-center text-center">
+            <span class="text-[#3cbce6] text-[10px] md:text-[11px] font-bold tracking-[0.25em] uppercase mb-6">
+              Continue Reading
+            </span>
+            <span class="text-[#94a3b8] text-[13px] md:text-[15px] font-light mb-4">
+              Next in Journal
+            </span>
+            <a href="/journal/the-geometry-of-shadows" class="hover:opacity-70 transition-opacity">
+              <h2 class="text-4xl md:text-5xl lg:text-6xl text-[#1e293b]" style="font-family: 'Playfair Display', serif;">
+                The Geometry of Shadows
+              </h2>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <Footer />
+</Layout>

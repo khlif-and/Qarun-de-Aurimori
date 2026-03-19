@@ -1,0 +1,214 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { id: "ethereal-structures" } },
+  ];
+}
+---
+
+<Layout>
+  <main class="bg-[#f8f9fb]">
+    <section class="relative w-full h-screen overflow-hidden bg-[#eef4f7]">
+      <img
+        src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=2000&auto=format&fit=crop"
+        alt="Ethereal Structures"
+        class="absolute inset-0 w-full h-full object-cover z-0"
+      />
+      
+      <div class="absolute inset-0 bg-gradient-to-t from-[#f8f9fb] via-[#f8f9fb]/40 to-transparent z-10"></div>
+      
+      <div class="absolute bottom-0 left-0 z-20 w-full p-8 md:p-12 lg:p-20 pb-12 md:pb-16 lg:pb-20">
+        <h1
+          class="text-5xl md:text-6xl lg:text-[72px] text-[#161f33] leading-tight mb-2 md:mb-4 tracking-tight"
+          style="font-family: 'Playfair Display', serif;"
+        >
+          Ethereal Structures
+        </h1>
+        <p class="text-[#5a677a] text-[15px] md:text-[17px] italic font-light max-w-md leading-relaxed">
+          Exploring the intersection of digital serenity and architectural form.
+        </p>
+      </div>
+    </section>
+
+    <section class="w-full py-24 lg:py-32 px-8 md:px-12 lg:px-20 flex justify-center">
+      <div class="max-w-3xl w-full">
+        <span class="block text-[10px] md:text-[11px] font-bold tracking-[0.25em] text-[#3cbce6] uppercase mb-6">
+          The Concept
+        </span>
+        
+        <h2 
+          class="text-3xl md:text-4xl lg:text-[42px] text-[#161f33] tracking-tight leading-[1.2] mb-8"
+          style="font-family: 'Playfair Display', serif;"
+        >
+          A Digital Space That Breathes
+        </h2>
+        
+        <div class="flex flex-col gap-6 text-[#4b5563] text-[16px] md:text-[18px] leading-[1.8]">
+          <p style="font-family: 'Playfair Display', serif;">
+            The challenge was to create a digital space that breathes. Using a
+            minimalist approach, we sought to bridge the gap between abstract
+            geometry and organic fluidity.
+          </p>
+          <p style="font-family: 'Playfair Display', serif;">
+            Our solution involved a custom-built rendering engine that
+            prioritizes soft shadows and pearly textures, ensuring every
+            interaction feels like a gentle whisper in a vast, sandy landscape. The
+            narrative is driven by the transition of light—from the harsh glare
+            of midday to the soft, ethereal hues of twilight.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full py-24 lg:py-32 px-8 md:px-12 lg:px-20 flex justify-center bg-white/50">
+      <div class="max-w-[1100px] w-full">
+        <div class="flex items-center gap-4 mb-16">
+          <div class="w-8 h-[2px] bg-[#3cbce6]"></div>
+          <h2 class="text-xl md:text-2xl font-bold text-[#161f33]">Tech Stack</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div class="bg-white p-10 rounded-xl border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.06)] transition-shadow duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#3cbce6] mb-8" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.25L2.25 7.5v9L12 21.75 21.75 16.5v-9L12 2.25zM12 11.25L4.125 7.03 12 2.813l7.875 4.217L12 11.25zm.75 9.07v-7.8l7.5-4.02v7.8l-7.5 4.02zm-1.5 0l-7.5-4.02v-7.8l7.5 4.02v7.8z"/>
+            </svg>
+            <h3 class="text-[18px] font-bold text-[#1e293b] mb-4">Three.js & WebGL</h3>
+            <p class="text-[15px] text-[#64748b] leading-[1.8] font-light">
+              The core rendering engine used to bring 3D geometry into the browser with high performance and hardware acceleration.
+            </p>
+          </div>
+
+          <div class="bg-white p-10 rounded-xl border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.06)] transition-shadow duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#3cbce6] mb-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 20L20 4M4 12L12 4M12 20L20 12" />
+            </svg>
+            <h3 class="text-[18px] font-bold text-[#1e293b] mb-4">Custom GLSL Shaders</h3>
+            <p class="text-[15px] text-[#64748b] leading-[1.8] font-light">
+              Bespoke vertex and fragment shaders programmed to achieve the unique pearly, refractive texture of the structures.
+            </p>
+          </div>
+
+          <div class="bg-white p-10 rounded-xl border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.06)] transition-shadow duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#3cbce6] mb-7" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="15" cy="9" r="6" />
+              <circle cx="9" cy="15" r="6" fill-opacity="0.5" />
+            </svg>
+            <h3 class="text-[18px] font-bold text-[#1e293b] mb-4">GSAP (GreenSock)</h3>
+            <p class="text-[15px] text-[#64748b] leading-[1.8] font-light">
+              Orchestrating complex, scroll-based animations and camera transitions within the 3D scene.
+            </p>
+          </div>
+
+          <div class="bg-white p-10 rounded-xl border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.06)] transition-shadow duration-500">
+            <div class="text-[#3cbce6] font-black text-xl tracking-tighter mb-8">JS</div>
+            <h3 class="text-[18px] font-bold text-[#1e293b] mb-4">React & Next.js</h3>
+            <p class="text-[15px] text-[#64748b] leading-[1.8] font-light">
+              Providing the robust application framework and state management for seamless navigation between immersive states.
+            </p>
+          </div>
+
+          <div class="bg-white p-10 rounded-xl border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.06)] transition-shadow duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#3cbce6] mb-8" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="5" cy="5" r="2" />
+              <circle cx="12" cy="5" r="2" />
+              <circle cx="19" cy="5" r="2" />
+              <circle cx="5" cy="12" r="2" />
+              <circle cx="12" cy="12" r="2" />
+              <circle cx="19" cy="12" r="2" />
+              <circle cx="5" cy="19" r="2" />
+              <circle cx="12" cy="19" r="2" />
+              <circle cx="19" cy="19" r="2" />
+            </svg>
+            <h3 class="text-[18px] font-bold text-[#1e293b] mb-4">Post-Processing</h3>
+            <p class="text-[15px] text-[#64748b] leading-[1.8] font-light">
+              Unreal Bloom and Bokeh effects to enhance the atmospheric depth and ethereal quality of the environment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full py-24 lg:py-32 px-8 md:px-12 lg:px-20 flex justify-center">
+      <div class="max-w-[1100px] w-full">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <span class="block text-[10px] md:text-[11px] font-bold tracking-[0.25em] text-[#3cbce6] uppercase mb-4">
+              PROCESS
+            </span>
+            <h2 
+              class="text-4xl md:text-5xl text-[#161f33] tracking-tight"
+              style="font-family: 'Playfair Display', serif;"
+            >
+              Visual Fragments
+            </h2>
+          </div>
+          <p class="text-[#5a677a] text-[13px] md:text-[15px] italic font-light max-w-xs md:text-right leading-relaxed">
+            From initial charcoal sketches to the final interactive experience.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10">
+          <div class="md:col-span-7 rounded-sm overflow-hidden bg-slate-200 shadow-sm">
+            <img 
+              src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?q=80&w=1000&auto=format&fit=crop" 
+              alt="Abstract architecture lines" 
+              class="w-full h-full object-cover aspect-[4/3] grayscale hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          
+          <div class="md:col-span-5 rounded-sm overflow-hidden bg-slate-200 shadow-sm">
+            <img 
+              src="https://images.unsplash.com/photo-1580192985016-7e3a7a92fb9d?q=80&w=800&auto=format&fit=crop" 
+              alt="Charcoal sketch of leaves" 
+              class="w-full h-full object-cover aspect-square md:aspect-[4/3] lg:aspect-[4/5] grayscale hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          
+          <div class="md:col-span-4 rounded-sm overflow-hidden bg-slate-200 shadow-sm">
+            <img 
+              src="https://images.unsplash.com/photo-1554110397-9bac083987c6?q=80&w=800&auto=format&fit=crop" 
+              alt="Glowing arched doorway" 
+              class="w-full h-full object-cover aspect-square grayscale hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          
+          <div class="md:col-span-8 rounded-sm overflow-hidden bg-slate-200 shadow-sm">
+            <img 
+              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" 
+              alt="3D wireframe abstract shape" 
+              class="w-full h-full object-cover aspect-video grayscale hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full py-16 md:py-24 border-t border-[#e2e8f0] bg-[#f8f9fb]">
+      <div class="max-w-[1200px] mx-auto px-8 md:px-12 lg:px-20 relative flex flex-col md:flex-row justify-between items-center gap-12 md:gap-0">
+        
+        <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-16 bg-[#e2e8f0]"></div>
+
+        <a href="/archive/lunar-oscillations" class="group flex flex-col items-center md:items-start w-full md:w-1/2 md:pr-12 transition-opacity hover:opacity-70 text-center md:text-left">
+          <span class="text-[9px] md:text-[10px] font-bold tracking-[0.25em] text-[#94a3b8] uppercase mb-4">
+            Previous Project
+          </span>
+          <h3 class="text-2xl md:text-3xl lg:text-[34px] text-[#161f33]" style="font-family: 'Playfair Display', serif;">
+            Lunar Oscillations
+          </h3>
+        </a>
+
+        <a href="/archive/the-glass-forest" class="group flex flex-col items-center md:items-end w-full md:w-1/2 md:pl-12 transition-opacity hover:opacity-70 text-center md:text-right">
+          <span class="text-[9px] md:text-[10px] font-bold tracking-[0.25em] text-[#94a3b8] uppercase mb-4">
+            Next Project
+          </span>
+          <h3 class="text-2xl md:text-3xl lg:text-[34px] text-[#161f33]" style="font-family: 'Playfair Display', serif;">
+            The Glass Forest
+          </h3>
+        </a>
+
+      </div>
+    </section>
+  </main>
+</Layout>

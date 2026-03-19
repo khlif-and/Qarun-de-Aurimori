@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/organisms/Footer.astro";
-import bannerBg from "../assets/banner_2.jpg";
+import bannerBg from "../assets/image_2.jpg";
 import ConceptMa from "../components/organisms/Philosophy/ConceptMa.astro";
 import TheSensoryApproachSection from "../components/organisms/Philosophy/TheSensoryApproachSection.astro";
 import OrganicMinimalism from "../components/organisms/Philosophy/OrganicMinimalism.astro";
@@ -10,11 +10,11 @@ import DesigningManifestoSection from "../components/organisms/Philosophy/Design
 
 <Layout>
   <main>
-    <section
+<section
       class="relative w-full min-h-[calc(100vh-80px)] flex flex-col items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
       style={`background-image: url('${bannerBg.src}');`}
     >
-      <div class="absolute inset-0 bg-[#1f2122]/70 z-0"></div>
+      <div class="absolute inset-0 bg-[#1f2122]/40 z-0"></div>
 
       <div
         class="absolute top-[5%] left-[10%] w-[600px] h-[800px] bg-slate-300/5 rounded-full filter blur-[120px] mix-blend-screen opacity-60 z-0"
@@ -32,11 +32,11 @@ import DesigningManifestoSection from "../components/organisms/Philosophy/Design
           class="text-[2.5rem] md:text-6xl lg:text-[76px] text-white mb-10 tracking-tight leading-[1.1] transition-all"
           style="font-family: 'Playfair Display', serif;"
         >
-          <span class="italic font-light">The Philosophy</span> of de<br
+          <span class="italic font-light">What Remains</span> after de<br
             class="hidden md:block"
           />
           Aurimori: <span class="italic font-normal"
-            >Where Stillness<br class="hidden md:block" /> Meets Structure.</span
+            >Where the Fallen<br class="hidden md:block" /> Become Foundation.</span
           >
         </h1>
 
@@ -45,7 +45,7 @@ import DesigningManifestoSection from "../components/organisms/Philosophy/Design
         <p
           class="text-[9px] md:text-[11px] font-bold tracking-[0.25em] md:tracking-[0.35em] text-slate-300 uppercase"
         >
-          Embracing the void to define the essence of form.
+          Not everything that ends is lost. Some things die to hold the weight of what comes next.
         </p>
       </div>
     </section>
@@ -54,6 +54,51 @@ import DesigningManifestoSection from "../components/organisms/Philosophy/Design
     <TheSensoryApproachSection />
     <OrganicMinimalism />
     <DesigningManifestoSection />
+
+<section class="w-full py-24 md:py-32 px-6 flex flex-col items-center justify-center bg-[#eef4f7]">
+      <div class="max-w-3xl mx-auto text-center flex flex-col items-center">
+        <span class="text-[10px] md:text-[11px] font-bold tracking-[0.25em] text-[#29b2df] uppercase mb-6">
+          The Maker's Intent
+        </span>
+
+        <h2 class="text-4xl md:text-5xl lg:text-[54px] text-[#1e293b] italic font-light mb-10 tracking-tight" style="font-family: 'Playfair Display', serif;">
+          Everything I Build Is Also a Burial.
+        </h2>
+
+        <p class="text-[#525b66] text-[15px] md:text-[17px] leading-[1.8] font-light mb-8 px-4 md:px-0">
+          To create is to mourn. Every line drawn is a line that could not be drawn another
+          way. Every choice made is a thousand choices abandoned — buried beneath the surface
+          of what you see now, invisible but present, the way roots are present beneath a
+          forest floor that has learned to look effortless.
+        </p>
+
+        <p class="text-[#525b66] text-[15px] md:text-[17px] leading-[1.8] font-light mb-12 px-4 md:px-0">
+          Qarun de Aurimori exists in that space between the making and the letting go.
+          Not to celebrate what was built — but to honor what was sacrificed to build it.
+          Because nothing that lasts was ever created without something else
+          quietly ceasing to exist.
+        </p>
+
+        <a href="/contact" class="inline-block bg-[#29b2df] hover:bg-[#229abf] text-[#0f172a] font-bold text-[10px] md:text-[11px] tracking-[0.2em] uppercase px-10 py-4 transition-colors duration-300">
+          Begin Where Things End
+        </a>
+      </div>
+    </section>
+
+    <section class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop" alt="Abstract dark waves" class="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700 ease-out" />
+      </div>
+      <div class="w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Minimalist interior" class="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700 ease-out" />
+      </div>
+      <div class="w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop" alt="Light and shadow" class="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700 ease-out" />
+      </div>
+      <div class="w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?q=80&w=800&auto=format&fit=crop" alt="Architecture abstract" class="w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-700 ease-out" />
+      </div>
+    </section>
   </main>
 
   <Footer />

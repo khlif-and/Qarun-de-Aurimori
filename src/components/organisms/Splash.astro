@@ -1,0 +1,449 @@
+---
+---
+
+<div id="splash" class="fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-b from-slate-950 via-black to-slate-900 overflow-hidden">
+  <!-- Ambient particles background -->
+  <div id="particlesContainer" class="absolute inset-0 -z-20"></div>
+
+  <!-- Background gradient overlay that changes with scroll -->
+  <div id="bgOverlay" class="absolute inset-0 -z-15 opacity-0"></div>
+
+  <!-- Central radial glow -->
+  <div class="absolute inset-0 bg-gradient-radial from-amber-900/30 via-transparent to-transparent opacity-60 -z-10"></div>
+
+  <!-- Left gate with gradient -->
+  <div id="gateLeft" class="absolute left-0 top-0 w-1/2 h-full bg-gradient-to-r from-slate-950 via-slate-900 to-transparent flex items-center justify-start pl-16 border-r border-amber-600/20">
+    <div class="flex flex-col items-start space-y-4">
+      <div class="overflow-hidden">
+        <h1 class="text-white text-6xl md:text-7xl font-bold tracking-tight leading-none" style="font-family: 'Playfair Display', serif;">
+          Qarun
+        </h1>
+      </div>
+      <div class="h-px w-20 bg-gradient-to-r from-amber-500 to-transparent"></div>
+      <p class="text-amber-100/60 text-sm font-light tracking-widest italic">Lost in Eternity</p>
+    </div>
+  </div>
+
+  <!-- Right gate with gradient -->
+  <div id="gateRight" class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-slate-950 via-slate-900 to-transparent flex items-center justify-end pr-16 border-l border-amber-600/20">
+    <div class="flex flex-col items-end space-y-6">
+      <div class="space-y-2">
+        <p class="text-amber-50/70 text-sm font-light leading-relaxed max-w-xs text-right">
+          Beyond the threshold lies what time forgot—
+        </p>
+        <p class="text-amber-50/50 text-xs font-light tracking-wide">
+          the sanctuary of the forgotten
+        </p>
+      </div>
+      <div class="w-16 h-px bg-gradient-to-l from-amber-500/80 to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Center light pillar - soft gold -->
+  <div id="lightPillar" class="absolute left-1/2 top-0 w-2 h-full bg-gradient-to-b from-amber-200 via-amber-100/50 to-transparent opacity-0 -translate-x-1/2 blur-sm"></div>
+
+  <!-- Light rays - multiple for star burst effect -->
+  <div id="lightRays" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-0">
+    <div class="absolute left-1/2 top-1/2 w-96 h-px bg-gradient-to-r from-transparent via-amber-300/40 to-transparent -translate-x-1/2 -translate-y-1/2" style="transform: translate(-50%, -50%) rotate(0deg);"></div>
+    <div class="absolute left-1/2 top-1/2 w-96 h-px bg-gradient-to-r from-transparent via-amber-300/40 to-transparent -translate-x-1/2 -translate-y-1/2" style="transform: translate(-50%, -50%) rotate(45deg);"></div>
+    <div class="absolute left-1/2 top-1/2 w-96 h-px bg-gradient-to-r from-transparent via-amber-300/40 to-transparent -translate-x-1/2 -translate-y-1/2" style="transform: translate(-50%, -50%) rotate(90deg);"></div>
+  </div>
+
+  <!-- Central glow effect - soft gold -->
+  <div id="centerGlow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-amber-300/50 to-transparent rounded-full blur-3xl opacity-0"></div>
+
+  <!-- Fade overlay - golden color matching light pillar -->
+  <div id="fadeOverlay" class="absolute inset-0 opacity-0 pointer-events-none -z-5 bg-gradient-to-b from-amber-200/0 via-amber-100/20 to-amber-50/10"></div>
+
+  <!-- Progressive content reveals -->
+  <div id="progressContent" class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <!-- Stage 1: Initial -->
+    <div id="stage1" class="absolute text-center opacity-100 transition-opacity duration-300">
+      <p class="text-amber-100/40 text-xs tracking-widest mb-6">THE GATEWAY AWAITS</p>
+      <div class="flex justify-center gap-2">
+        <div class="w-px h-8 bg-gradient-to-b from-amber-400 via-amber-300 to-transparent"></div>
+        <div class="w-px h-8 bg-gradient-to-b from-amber-300 via-amber-200 to-transparent"></div>
+        <div class="w-px h-8 bg-gradient-to-b from-amber-200 via-amber-100 to-transparent"></div>
+      </div>
+    </div>
+
+    <!-- Stage 2: Mid-scroll -->
+    <div id="stage2" class="absolute text-center opacity-0 transition-opacity duration-300">
+      <p class="text-amber-100/50 text-sm font-light mb-4">what lies beyond</p>
+      <p class="text-amber-100/30 text-xs">unfolds before you</p>
+    </div>
+
+    <!-- Stage 3: Near end -->
+    <div id="stage3" class="absolute text-center opacity-0 transition-opacity duration-300">
+      <p class="text-amber-100/80 text-lg font-light italic">welcome home</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes slideOutLeft {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-130%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slideOutRight {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(130%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-130%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(130%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pillarGlow {
+    0% {
+      opacity: 0;
+      height: 0;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+      height: 100%;
+    }
+  }
+
+  @keyframes pillarFade {
+    0% {
+      opacity: 1;
+      height: 100%;
+    }
+    100% {
+      opacity: 0;
+      height: 0;
+    }
+  }
+
+  @keyframes centralExpand {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+      opacity: 0.8;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes centralCollapse {
+    0% {
+      opacity: 0.8;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes splashFadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  @keyframes splashFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Initial entrance animations */
+  #splash #gateLeft {
+    /* NO ANIMATION - static at start */
+  }
+
+  #splash #gateRight {
+    /* NO ANIMATION - static at start */
+  }
+
+  #splash #scrollPrompt {
+    display: none; /* Hide scroll prompt */
+  }
+</style>
+
+<script>
+  // Create particle effect
+  function createParticles() {
+    const container = document.getElementById('particlesContainer');
+    if (!container) return;
+
+    for (let i = 0; i < 40; i++) {
+      const particle = document.createElement('div');
+      const size = Math.random() * 3 + 1;
+      const x = Math.random() * 100;
+      const y = Math.random() * 100;
+      const duration = Math.random() * 20 + 20;
+      const delay = Math.random() * 3;
+
+      particle.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        background: radial-gradient(circle, rgba(217,119,6,1) 0%, rgba(180,83,9,0.6) 70%, transparent 100%);
+        border-radius: 50%;
+        left: ${x}%;
+        top: ${y}%;
+        opacity: ${Math.random() * 0.6 + 0.3};
+        animation: float ${duration}s linear ${delay}s infinite;
+        pointer-events: none;
+        box-shadow: 0 0 ${size * 2}px rgba(217,119,6,0.8);
+      `;
+      container.appendChild(particle);
+    }
+
+    // Add float animation if not exists
+    if (!document.querySelector('style[data-particles]')) {
+      const style = document.createElement('style');
+      style.setAttribute('data-particles', 'true');
+      style.textContent = `
+        @keyframes float {
+          0% {
+            transform: translateY(0) translateX(0);
+            opacity: 0;
+          }
+          10% {
+            opacity: 0.6;
+          }
+          90% {
+            opacity: 0.6;
+          }
+          100% {
+            transform: translateY(-100vh) translateX(50px);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }
+
+  createParticles();
+
+  const splash = document.getElementById('splash');
+  const gateLeft = splash?.querySelector('#gateLeft');
+  const gateRight = splash?.querySelector('#gateRight');
+  const lightPillar = splash?.querySelector('#lightPillar');
+  const centerGlow = splash?.querySelector('#centerGlow');
+  const bgOverlay = splash?.querySelector('#bgOverlay');
+  const lightRays = splash?.querySelector('#lightRays');
+  const fadeOverlay = splash?.querySelector('#fadeOverlay');
+  
+  // Get text elements inside gates
+  const gateLeftContent = gateLeft?.querySelector('div:last-child');
+  const gateRightContent = gateRight?.querySelector('div:first-child');
+  
+  // Get progressive content stages
+  const stage1 = splash?.querySelector('#stage1');
+  const stage2 = splash?.querySelector('#stage2');
+  const stage3 = splash?.querySelector('#stage3');
+  
+  let hasFullyOpened = false;
+
+  // Scroll-linked animation - gates open/close based on scroll
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const maxScroll = 1000; // Longer scroll distance for smooth opening
+    const progress = Math.min(scrolled / maxScroll, 1); // 0 to 1
+    
+    // Once fully opened, start fade sequence ONCE
+    if (progress >= 0.95 && !hasFullyOpened) {
+      hasFullyOpened = true;
+      
+      // Animate page entry after fade completes (no scroll locking)
+      setTimeout(() => {
+        if (splash) {
+          splash.style.opacity = '0';
+          splash.style.pointerEvents = 'none';
+          splash.style.transition = 'opacity 1.2s ease-out';
+        }
+      }, 200);
+    }
+    
+    if (splash && progress > 0) {
+      // Background gradient shift - from dark blue to golden amber
+      const bgProgress = progress * 100;
+      bgOverlay.style.background = `linear-gradient(to bottom, 
+        rgba(180, 83, 9, ${progress * 0.3}), 
+        rgba(217, 119, 6, ${progress * 0.2}) 50%,
+        rgba(120, 53, 15, ${progress * 0.15}))`;
+      bgOverlay.style.opacity = `${progress * 0.6}`;
+      
+      // Move gates left and right based on scroll progress
+      const translateAmount = progress * 130; // Move up to 130%
+      
+      if (gateLeft) {
+        gateLeft.style.transform = `translateX(-${translateAmount}%)`;
+        gateLeft.style.opacity = `${1 - progress}`;
+      }
+      
+      if (gateRight) {
+        gateRight.style.transform = `translateX(${translateAmount}%)`;
+        gateRight.style.opacity = `${1 - progress}`;
+      }
+      
+      // Smooth fade out of text content inside gates
+      if (gateLeftContent) {
+        gateLeftContent.style.opacity = `${1 - progress}`;
+        gateLeftContent.style.transition = 'opacity 0.05s ease-out';
+      }
+      
+      if (gateRightContent) {
+        gateRightContent.style.opacity = `${1 - progress}`;
+        gateRightContent.style.transition = 'opacity 0.05s ease-out';
+      }
+      
+      // Enhanced light pillar - brighter and more dramatic
+      if (lightPillar) {
+        lightPillar.style.opacity = `${progress * 1.2}`; // Brighter
+        lightPillar.style.height = `${progress * 100}%`;
+        lightPillar.style.transition = 'opacity 0.05s ease-out, height 0.05s ease-out';
+        lightPillar.style.backgroundColor = `rgb(${Math.round(217 - 50 * progress)}, ${Math.round(119 + 80 * progress)}, ${Math.round(6 - 6 * progress)})`; // Shift to golden-white
+      }
+      
+      // Light rays effect
+      if (lightRays) {
+        lightRays.style.opacity = `${progress * 0.8}`;
+        lightRays.style.transition = 'opacity 0.05s ease-out';
+      }
+      
+      // Central glow - more dramatic
+      if (centerGlow) {
+        centerGlow.style.opacity = `${progress * 1.2}`; // Brighter
+        centerGlow.style.transform = `translate(-50%, -50%) scale(${0.5 + progress * 0.7})`;
+        centerGlow.style.transition = 'opacity 0.05s ease-out, transform 0.05s ease-out';
+        centerGlow.style.backgroundColor = `radial-gradient(circle, rgba(${Math.round(217 - 50 * progress)}, ${Math.round(119 + 80 * progress)}, 6, ${0.5 + progress * 0.3}) 0%, transparent 70%)`;
+      }
+      
+      // Progressive content reveal with better timing
+      const stageProgress = progress * 3; // 0 to 3
+      
+      if (stage1) {
+        stage1.style.opacity = `${Math.max(0, 1 - stageProgress)}`;
+      }
+      if (stage2) {
+        stage2.style.opacity = `${Math.max(0, Math.min(1, stageProgress - 0.5))}`;
+      }
+      if (stage3) {
+        stage3.style.opacity = `${Math.max(0, Math.min(1, stageProgress - 1.5))}`;
+      }
+      
+      // Fade overlay appears when gates fully open
+      if (progress >= 0.95) {
+        const fadeProgress = (progress - 0.95) / 0.05; // 0 to 1 from 95% to 100%
+        
+        if (fadeOverlay) {
+          fadeOverlay.style.opacity = `${fadeProgress}`;
+          fadeOverlay.style.background = `linear-gradient(to bottom,
+            rgba(217, 119, 6, ${fadeProgress * 0.3}),
+            rgba(180, 83, 9, ${fadeProgress * 0.4}),
+            rgba(120, 53, 15, ${fadeProgress * 0.25}))`;
+        }
+      }
+    } else if (progress === 0 && !hasFullyOpened) {
+      // Reset when scroll back up (but only if not fully opened yet)
+      if (gateLeft) {
+        gateLeft.style.transform = 'translateX(0)';
+        gateLeft.style.transition = 'transform 0.05s ease-out, opacity 0.05s ease-out';
+      }
+      if (gateRight) {
+        gateRight.style.transform = 'translateX(0)';
+        gateRight.style.transition = 'transform 0.05s ease-out, opacity 0.05s ease-out';
+      }
+      if (gateLeftContent) {
+        gateLeftContent.style.opacity = '1';
+        gateLeftContent.style.transition = 'opacity 0.05s ease-out';
+      }
+      if (gateRightContent) {
+        gateRightContent.style.opacity = '1';
+        gateRightContent.style.transition = 'opacity 0.05s ease-out';
+      }
+      if (lightPillar) {
+        lightPillar.style.opacity = '0';
+        lightPillar.style.height = '0';
+        lightPillar.style.transition = 'opacity 0.05s ease-out, height 0.05s ease-out';
+      }
+      if (centerGlow) {
+        centerGlow.style.opacity = '0';
+        centerGlow.style.transform = 'translate(-50%, -50%) scale(0.5)';
+        centerGlow.style.transition = 'opacity 0.05s ease-out, transform 0.05s ease-out';
+      }
+      if (lightRays) {
+        lightRays.style.opacity = '0';
+        lightRays.style.transition = 'opacity 0.05s ease-out';
+      }
+      if (bgOverlay) {
+        bgOverlay.style.opacity = '0';
+        bgOverlay.style.transition = 'opacity 0.05s ease-out';
+      }
+      if (fadeOverlay) {
+        fadeOverlay.style.opacity = '0';
+        fadeOverlay.style.transition = 'opacity 0.05s ease-out';
+      }
+      
+      // Reset content stages
+      if (stage1) stage1.style.opacity = '1';
+      if (stage2) stage2.style.opacity = '0';
+      if (stage3) stage3.style.opacity = '0';
+      
+      if (splash) {
+        splash.style.opacity = '1';
+        splash.style.pointerEvents = 'auto';
+      }
+    }
+  }, { passive: true });
+</script>
