@@ -1,42 +1,150 @@
 ---
 ---
 
-<section class="w-full bg-[#f5f7f9] py-24 md:py-32 px-6 flex justify-center" id="voices">
-  <div class="max-w-[800px] w-full flex flex-col items-center gap-16 md:gap-20">
+<section class="relative w-full bg-[#030303] py-32 md:py-48 flex justify-center px-6 overflow-hidden" id="voices">
+  
+  <!-- Mystical Ambient Texture -->
+  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+  
+  <!-- Javanese Mantra Ambient Text -->
+  <div class="absolute top-[10%] right-[-5%] z-0 pointer-events-none opacity-[0.02]">
+    <span class="text-[300px] md:text-[500px] text-[#C5A059] font-serif leading-none tracking-tighter">ꦮꦕ</span>
+  </div>
+  <div class="absolute bottom-[5%] left-[-10%] z-0 pointer-events-none opacity-[0.02]">
+    <span class="text-[250px] md:text-[400px] text-[#C5A059] font-serif leading-none tracking-tighter">ꦱꦸꦮ</span>
+  </div>
+
+  <!-- Giant Glowing Pohon Pelepah (Frond Tree) Background -->
+  <div class="absolute top-[10%] left-1/2 -translate-x-1/2 w-[800px] h-[1000px] md:w-[1200px] md:h-[1400px] pointer-events-none z-0 opacity-[0.15] mix-blend-screen">
+    <svg viewBox="0 0 1000 1200" class="w-full h-full drop-shadow-[0_0_40px_rgba(197,160,89,1)]">
+      <!-- Main Trunk/Stem -->
+      <path d="M500 1200 C480 800, 520 400, 500 100" stroke="#C5A059" stroke-width="4" fill="none"/>
+      <path d="M490 1200 C470 900, 510 500, 498 120" stroke="#C5A059" stroke-width="2" fill="none" opacity="0.5"/>
+      <path d="M510 1200 C490 900, 530 500, 502 120" stroke="#C5A059" stroke-width="2" fill="none" opacity="0.5"/>
+      
+      <!-- Right Giant Fronds (Pelepah) -->
+      <path d="M500 150 C650 100, 850 300, 950 600" stroke="#C5A059" stroke-width="3" fill="none"/>
+      <path d="M510 300 C650 250, 800 500, 900 800" stroke="#C5A059" stroke-width="2.5" fill="none"/>
+      <path d="M520 500 C620 480, 750 700, 850 1000" stroke="#C5A059" stroke-width="2" fill="none"/>
+      <path d="M500 80 C600 40, 750 150, 800 350" stroke="#C5A059" stroke-width="1.5" fill="none"/>
+      
+      <!-- Left Giant Fronds (Pelepah) -->
+      <path d="M500 120 C350 80, 150 250, 50 550" stroke="#C5A059" stroke-width="3" fill="none"/>
+      <path d="M490 280 C350 220, 200 450, 100 750" stroke="#C5A059" stroke-width="2.5" fill="none"/>
+      <path d="M480 480 C380 450, 250 650, 150 950" stroke="#C5A059" stroke-width="2" fill="none"/>
+      <path d="M500 60 C400 30, 250 120, 200 300" stroke="#C5A059" stroke-width="1.5" fill="none"/>
+
+      <!-- Drooping Leaves (Daun Pelepah Menjuntai) -->
+      <!-- Right Frond 1 Leaves -->
+      {Array.from({length: 18}).map((_, i) => (
+        <path d={`M${520 + (i * 22)} ${130 + (i * i * 1.5)} Q${540 + (i * 22)} ${230 + (i * i * 1.5)} ${525 + (i * 22)} ${330 + (i * i * 1.5)}`} stroke="#C5A059" stroke-width="1.5" fill="none" opacity="0.6"/>
+      ))}
+      
+      <!-- Right Frond 2 Leaves -->
+      {Array.from({length: 14}).map((_, i) => (
+        <path d={`M${530 + (i * 25)} ${290 + (i * i * 2.0)} Q${550 + (i * 25)} ${370 + (i * i * 2.0)} ${535 + (i * 25)} ${450 + (i * i * 2.0)}`} stroke="#C5A059" stroke-width="1" fill="none" opacity="0.4"/>
+      ))}
+
+      <!-- Left Frond 1 Leaves -->
+      {Array.from({length: 18}).map((_, i) => (
+        <path d={`M${480 - (i * 22)} ${100 + (i * i * 1.5)} Q${460 - (i * 22)} ${200 + (i * i * 1.5)} ${475 - (i * 22)} ${300 + (i * i * 1.5)}`} stroke="#C5A059" stroke-width="1.5" fill="none" opacity="0.6"/>
+      ))}
+
+      <!-- Left Frond 2 Leaves -->
+      {Array.from({length: 14}).map((_, i) => (
+        <path d={`M${470 - (i * 25)} ${270 + (i * i * 2.0)} Q${450 - (i * 25)} ${350 + (i * i * 2.0)} ${465 - (i * 25)} ${430 + (i * i * 2.0)}`} stroke="#C5A059" stroke-width="1" fill="none" opacity="0.4"/>
+      ))}
+      
+      <!-- Roots/Base Details -->
+      <path d="M500 1200 C450 1150, 420 1180, 350 1200" stroke="#C5A059" stroke-width="2" fill="none"/>
+      <path d="M500 1200 C550 1160, 580 1190, 650 1200" stroke="#C5A059" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+
+  <!-- Mega Mendung Left -->
+  <div class="absolute top-[20%] left-[-15%] w-[400px] pointer-events-none z-0 opacity-[0.25] mix-blend-screen">
+    <svg viewBox="0 0 500 500" class="w-full h-full drop-shadow-[0_0_20px_rgba(197,160,89,1)]">
+      <!-- Upper cluster -->
+      <path d="M-100 350 C 0 300, 50 320, 80 280 C 120 200, 220 220, 250 150 C 280 80, 380 90, 420 160 C 450 200, 420 250, 380 270" stroke="#C5A059" stroke-width="2.5" fill="none"/>
+      <path d="M-100 370 C -10 320, 40 340, 70 300 C 110 220, 210 240, 240 170 C 270 100, 370 110, 400 180 C 430 220, 400 270, 360 290" stroke="#C5A059" stroke-width="1.5" fill="none"/>
+      <!-- Lower cluster -->
+      <path d="M-50 480 C 50 450, 80 470, 120 400 C 160 320, 260 350, 300 280 C 340 220, 440 230, 480 300 C 500 340, 480 390, 440 420" stroke="#C5A059" stroke-width="2.5" fill="none"/>
+      <path d="M-50 500 C 40 470, 70 490, 110 420 C 150 340, 250 370, 290 300 C 330 240, 430 250, 470 320 C 490 360, 470 410, 430 440" stroke="#C5A059" stroke-width="1.5" fill="none"/>
+    </svg>
+  </div>
+
+  <!-- Mega Mendung Right -->
+  <div class="absolute bottom-[10%] right-[-15%] w-[400px] pointer-events-none z-0 opacity-[0.25] mix-blend-screen scale-x-[-1]">
+    <svg viewBox="0 0 500 500" class="w-full h-full drop-shadow-[0_0_20px_rgba(197,160,89,1)]">
+      <!-- Upper cluster -->
+      <path d="M-100 350 C 0 300, 50 320, 80 280 C 120 200, 220 220, 250 150 C 280 80, 380 90, 420 160 C 450 200, 420 250, 380 270" stroke="#C5A059" stroke-width="2.5" fill="none"/>
+      <path d="M-100 370 C -10 320, 40 340, 70 300 C 110 220, 210 240, 240 170 C 270 100, 370 110, 400 180 C 430 220, 400 270, 360 290" stroke="#C5A059" stroke-width="1.5" fill="none"/>
+      <!-- Lower cluster -->
+      <path d="M-50 480 C 50 450, 80 470, 120 400 C 160 320, 260 350, 300 280 C 340 220, 440 230, 480 300 C 500 340, 480 390, 440 420" stroke="#C5A059" stroke-width="2.5" fill="none"/>
+      <path d="M-50 500 C 40 470, 70 490, 110 420 C 150 340, 250 370, 290 300 C 330 240, 430 250, 470 320 C 490 360, 470 410, 430 440" stroke="#C5A059" stroke-width="1.5" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="max-w-[800px] w-full flex flex-col items-center gap-16 md:gap-20 relative z-10 mt-10">
     
-    <!-- Section Header (Quotation Icon and Title) -->
-    <div class="flex flex-col items-center gap-4">
-      <div class="text-[#3cbce6] mb-1">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+    <!-- Section Header (Pelepah Icon and Title) -->
+    <div class="flex flex-col items-center gap-6">
+      <!-- Small Pelepah Motif Icon -->
+      <div class="text-[#C5A059] opacity-80 drop-shadow-[0_0_10px_rgba(197,160,89,0.5)]">
+        <svg viewBox="0 0 100 100" class="w-12 h-12">
+          <path d="M50 100 C50 60, 50 30, 50 0" stroke="#C5A059" stroke-width="2" fill="none"/>
+          <path d="M50 20 C70 10, 90 30, 95 60" stroke="#C5A059" stroke-width="1.5" fill="none"/>
+          <path d="M50 15 C30 5, 10 25, 5 55" stroke="#C5A059" stroke-width="1.5" fill="none"/>
+          <path d="M60 25 Q75 50 65 75" stroke="#C5A059" stroke-width="1" fill="none"/>
+          <path d="M40 20 Q25 45 35 70" stroke="#C5A059" stroke-width="1" fill="none"/>
+          <path d="M65 40 Q80 65 75 85" stroke="#C5A059" stroke-width="0.8" fill="none"/>
+          <path d="M35 35 Q20 60 25 80" stroke="#C5A059" stroke-width="0.8" fill="none"/>
         </svg>
       </div>
-      <h2 class="text-3xl md:text-4xl text-[#1e293b] font-serif italic" style="font-family: 'Playfair Display', serif;">
-        Voices
+      <span class="text-[#C5A059] text-[10px] md:text-xs font-light tracking-[0.8em] uppercase">
+        Echoes of The Forest
+      </span>
+      <h2 class="text-4xl md:text-5xl text-[#F8F5F0] font-serif italic drop-shadow-[0_0_15px_rgba(0,0,0,1)]" style="font-family: 'Playfair Display', serif;">
+        Voices <span class="text-[#C5A059]">Beneath the Fronds</span>
       </h2>
+      <div class="w-[1px] h-16 bg-gradient-to-b from-[#C5A059]/60 to-transparent mt-2"></div>
     </div>
 
     <!-- Testimonials List -->
-    <div class="flex flex-col gap-16 md:gap-24 text-center">
+    <div class="flex flex-col gap-20 md:gap-32 text-center w-full">
       
       <!-- Testimonial 1 -->
-      <div class="flex flex-col gap-6 items-center">
-        <p class="text-[#475569] text-xl md:text-[25px] leading-[1.6] md:leading-[1.7] font-serif italic px-4" style="font-family: 'Playfair Display', serif;">
-          "Working with De Aurimori is like witnessing a landscape reveal itself after a heavy fog. Everything becomes clear, intentional, and profoundly beautiful."
+      <div class="flex flex-col gap-8 items-center bg-[#0a0a0a]/50 p-10 md:p-14 border border-[#C5A059]/10 rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.8)] backdrop-blur-sm relative transition-all duration-500 hover:border-[#C5A059]/40 hover:bg-[#0a0a0a]/70 cursor-pointer group">
+        <div class="absolute -top-4 w-8 h-8 flex items-center justify-center bg-[#030303] text-[#C5A059] text-3xl font-serif italic border border-[#C5A059]/20 rounded-full group-hover:border-[#C5A059] transition-colors duration-500">"</div>
+        <p class="text-[#F8F5F0] text-xl md:text-[26px] leading-[1.8] font-serif italic drop-shadow-[0_0_10px_rgba(0,0,0,1)]" style="font-family: 'Playfair Display', serif;">
+          Working with De Aurimori is like witnessing a landscape reveal itself after a heavy fog. Everything becomes clear, intentional, and profoundly beautiful.
         </p>
-        <span class="text-[#3cbce6] text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">
-          — Elena Vane, Creative Director
-        </span>
+        <div class="flex flex-col items-center gap-2 mt-2">
+          <div class="w-10 h-[1px] bg-[#C5A059]/40 mb-2 group-hover:w-16 transition-all duration-500"></div>
+          <span class="text-[#C5A059] text-[11px] md:text-[13px] font-light tracking-[0.3em] uppercase">
+            Elena Vane
+          </span>
+          <span class="text-[#A39E93] text-[9px] md:text-[10px] tracking-widest uppercase opacity-60">
+            Creative Director
+          </span>
+        </div>
       </div>
 
       <!-- Testimonial 2 -->
-      <div class="flex flex-col gap-6 items-center">
-        <p class="text-[#475569] text-xl md:text-[25px] leading-[1.6] md:leading-[1.7] font-serif italic px-4" style="font-family: 'Playfair Display', serif;">
-          "They don't just build websites; they build sanctuaries for brands. The attention to light and space in a digital medium is truly unparalleled."
+      <div class="flex flex-col gap-8 items-center bg-[#0a0a0a]/50 p-10 md:p-14 border border-[#C5A059]/10 rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.8)] backdrop-blur-sm relative transition-all duration-500 hover:border-[#C5A059]/40 hover:bg-[#0a0a0a]/70 cursor-pointer group">
+        <div class="absolute -top-4 w-8 h-8 flex items-center justify-center bg-[#030303] text-[#C5A059] text-3xl font-serif italic border border-[#C5A059]/20 rounded-full group-hover:border-[#C5A059] transition-colors duration-500">"</div>
+        <p class="text-[#F8F5F0] text-xl md:text-[26px] leading-[1.8] font-serif italic drop-shadow-[0_0_10px_rgba(0,0,0,1)]" style="font-family: 'Playfair Display', serif;">
+          They don't just build websites; they build sanctuaries for brands. The attention to light, space, and quiet detail is truly unparalleled.
         </p>
-        <span class="text-[#3cbce6] text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">
-          — Julian Thorne, Architect
-        </span>
+        <div class="flex flex-col items-center gap-2 mt-2">
+          <div class="w-10 h-[1px] bg-[#C5A059]/40 mb-2 group-hover:w-16 transition-all duration-500"></div>
+          <span class="text-[#C5A059] text-[11px] md:text-[13px] font-light tracking-[0.3em] uppercase">
+            Julian Thorne
+          </span>
+          <span class="text-[#A39E93] text-[9px] md:text-[10px] tracking-widest uppercase opacity-60">
+            Architect
+          </span>
+        </div>
       </div>
 
     </div>

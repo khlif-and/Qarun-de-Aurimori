@@ -1,27 +1,103 @@
 ---
 ---
 
-<section class="w-full bg-white py-24 md:py-32 flex justify-center px-6" id="philosophy">
-  <div class="max-w-[760px] w-full flex flex-col gap-10 md:gap-14">
+<style>
+  @keyframes holoSpin {
+    0% { transform: rotateY(0deg) rotateX(5deg) translateY(0px); }
+    50% { transform: rotateY(180deg) rotateX(-5deg) translateY(-20px); }
+    100% { transform: rotateY(360deg) rotateX(5deg) translateY(0px); }
+  }
+  @keyframes holoSpinReverse {
+    0% { transform: rotateY(360deg) rotateX(5deg) translateY(0px); }
+    50% { transform: rotateY(180deg) rotateX(-5deg) translateY(-20px); }
+    100% { transform: rotateY(0deg) rotateX(5deg) translateY(0px); }
+  }
+  .hologram-3d {
+    transform-style: preserve-3d;
+  }
+</style>
+
+<section class="relative w-full bg-[#0a0a0a] py-32 md:py-48 flex justify-center px-6 overflow-hidden" id="philosophy">
+  
+  <!-- Mystical Background Texture (Overlay) -->
+  <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+  
+  <!-- Giant faint Javanese character -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-5">
+    <span class="text-[400px] md:text-[600px] text-[#C5A059] font-serif leading-none tracking-tighter">ꦏꦂ</span>
+  </div>
+
+  <!-- 3D Holographic Wayang (Left) -->
+  <div class="absolute left-[-20%] md:left-[-10%] top-1/2 -translate-y-1/2 pointer-events-none z-0" style="perspective: 1000px;">
+    <div class="hologram-3d relative w-64 h-[400px] md:w-[400px] md:h-[600px] animate-[holoSpin_25s_linear_infinite]">
+      <!-- Layers for 3D depth -->
+      { [0, 15, 30].map(z => (
+        <div class="absolute inset-0 opacity-20" style={`transform: translateZ(${z}px);`}>
+          <svg viewBox="0 0 100 200" class="w-full h-full drop-shadow-[0_0_15px_rgba(197,160,89,0.8)] mix-blend-screen">
+            <path d="M50 10 C75 50, 95 100, 95 150 C95 180, 75 190, 50 190 C25 190, 5 180, 5 150 C5 100, 25 50, 50 10 Z" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+            <path d="M50 25 C65 60, 80 100, 80 145 C80 170, 65 180, 50 180 C35 180, 20 170, 20 145 C20 100, 35 60, 50 25 Z" fill="none" stroke="#C5A059" stroke-width="0.5" stroke-dasharray="2 2"/>
+            <circle cx="50" cy="140" r="25" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+            <line x1="50" y1="190" x2="50" y2="10" stroke="#C5A059" stroke-width="0.5"/>
+            <circle cx="30" cy="160" r="4" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+            <circle cx="70" cy="160" r="4" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+            <circle cx="50" cy="100" r="6" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+          </svg>
+        </div>
+      )) }
+    </div>
+  </div>
+
+  <!-- 3D Holographic Wayang (Right) -->
+  <div class="absolute right-[-20%] md:right-[-10%] top-1/2 -translate-y-1/2 pointer-events-none z-0" style="perspective: 1000px;">
+    <div class="hologram-3d relative w-64 h-[400px] md:w-[400px] md:h-[600px] animate-[holoSpinReverse_25s_linear_infinite]">
+      { [0, 15, 30].map(z => (
+        <div class="absolute inset-0 opacity-20" style={`transform: translateZ(${z}px);`}>
+          <svg viewBox="0 0 100 200" class="w-full h-full drop-shadow-[0_0_15px_rgba(197,160,89,0.8)] mix-blend-screen">
+            <path d="M50 10 C75 50, 95 100, 95 150 C95 180, 75 190, 50 190 C25 190, 5 180, 5 150 C5 100, 25 50, 50 10 Z" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+            <path d="M50 25 C65 60, 80 100, 80 145 C80 170, 65 180, 50 180 C35 180, 20 170, 20 145 C20 100, 35 60, 50 25 Z" fill="none" stroke="#C5A059" stroke-width="0.5" stroke-dasharray="2 2"/>
+            <circle cx="50" cy="140" r="25" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+            <line x1="50" y1="190" x2="50" y2="10" stroke="#C5A059" stroke-width="0.5"/>
+            <circle cx="30" cy="160" r="4" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+            <circle cx="70" cy="160" r="4" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+            <circle cx="50" cy="100" r="6" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+          </svg>
+        </div>
+      )) }
+    </div>
+  </div>
+
+  <div class="relative max-w-[760px] w-full flex flex-col gap-14 md:gap-20 z-10">
     
     <!-- Section Heading -->
-    <h2 class="text-3xl md:text-[42px] text-center text-[#3cbce6] mb-2 tracking-wide font-serif italic" style="font-family: 'Playfair Display', serif;">
-      The Philosophy of De Aurimori
-    </h2>
+    <div class="flex flex-col items-center text-center gap-6">
+      <svg viewBox="0 0 100 150" class="w-10 h-16 opacity-80 drop-shadow-[0_0_15px_rgba(197,160,89,0.5)]">
+        <path d="M50 0 C70 50, 100 90, 100 150 L0 150 C0 90, 30 50, 50 0 Z" fill="none" stroke="#C5A059" stroke-width="2"/>
+        <path d="M50 20 C65 60, 85 95, 85 150 L15 150 C15 95, 35 60, 50 20 Z" fill="none" stroke="#C5A059" stroke-width="0.8" stroke-dasharray="2 2"/>
+      </svg>
+      
+      <h2 class="text-4xl md:text-5xl text-[#C5A059] tracking-wider font-serif italic drop-shadow-[0_0_15px_rgba(197,160,89,0.3)] mt-2" style="font-family: 'Playfair Display', serif;">
+        The Philosophy
+      </h2>
+      <p class="text-[#A39E93] tracking-[0.5em] text-[10px] md:text-xs uppercase font-light">de Aurimori</p>
+      
+      <div class="w-[1px] h-24 bg-gradient-to-b from-[#C5A059]/60 to-transparent mt-4"></div>
+    </div>
 
     <!-- Body Text -->
-    <div class="text-[#475569] text-[17px] md:text-[19px] leading-[1.85] flex flex-col gap-8 font-serif" style="font-family: 'Lora', serif;">
+    <div class="text-[#A39E93] text-[16px] md:text-[18px] leading-[2.2] flex flex-col gap-12 font-serif font-light text-center px-4" style="font-family: 'Lora', serif;">
       
-      <p>
+      <p class="text-[#F8F5F0]">
         We have always known that the most tender things grow in the hardest ground.
         That the seed does not choose the dark — it simply refuses to let the dark
         be the last word. We build the same way: not against the weight of what has
         been lost, but from inside it.
       </p>
 
-      <blockquote class="border-l-[3px] border-[#c1e8f9] pl-7 md:pl-10 py-1 my-3 text-[#64748b] italic text-[18px] md:text-[20px] leading-[1.7]">
+      <blockquote class="relative py-12 my-4 text-[#C5A059] italic text-[22px] md:text-[26px] leading-[1.8] drop-shadow-[0_0_10px_rgba(197,160,89,0.2)]">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/50 to-transparent"></div>
         "The earth does not mourn what it buries. It simply waits — 
         patient and unhurried — for what the pressure will make of it."
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/50 to-transparent"></div>
       </blockquote>
 
       <p>
@@ -37,9 +113,16 @@
         Every structure we raise knows it will one day fall. We do not hide this
         from it. We build the knowledge of its own ending into its bones —
         because only what has made peace with impermanence can stand
-        without needing to be defended. That is not resignation.
-        That is the only kind of strength that has ever lasted.
+        without needing to be defended. <br/><br/>
+        <span class="text-[#F8F5F0] italic tracking-wide">That is not resignation.
+        That is the only kind of strength that has ever lasted.</span>
       </p>
+      
+      <div class="flex justify-center mt-8">
+        <svg viewBox="0 0 100 150" class="w-8 h-12 opacity-60 rotate-180 drop-shadow-[0_0_10px_rgba(197,160,89,0.3)]">
+          <path d="M50 0 C70 50, 100 90, 100 150 L0 150 C0 90, 30 50, 50 0 Z" fill="none" stroke="#C5A059" stroke-width="2"/>
+        </svg>
+      </div>
 
     </div>
   </div>
