@@ -1,449 +1,1426 @@
 ---
+// src/components/organisms/Splash.astro
+import splashAudio from "../../assets/audio/opening.mp3";
 ---
 
-<div id="splash" class="fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-b from-slate-950 via-black to-slate-900 overflow-hidden">
-  <!-- Ambient particles background -->
-  <div id="particlesContainer" class="absolute inset-0 -z-20"></div>
+<div id="splash" class="fixed inset-0 z-[100] bg-transparent overflow-hidden">
+  <audio id="splashMusic" src={splashAudio} preload="auto" loop></audio>
 
-  <!-- Background gradient overlay that changes with scroll -->
-  <div id="bgOverlay" class="absolute inset-0 -z-15 opacity-0"></div>
-
-  <!-- Central radial glow -->
-  <div class="absolute inset-0 bg-gradient-radial from-amber-900/30 via-transparent to-transparent opacity-60 -z-10"></div>
-
-  <!-- Left gate with gradient -->
-  <div id="gateLeft" class="absolute left-0 top-0 w-1/2 h-full bg-gradient-to-r from-slate-950 via-slate-900 to-transparent flex items-center justify-start pl-16 border-r border-amber-600/20">
-    <div class="flex flex-col items-start space-y-4">
-      <div class="overflow-hidden">
-        <h1 class="text-white text-6xl md:text-7xl font-bold tracking-tight leading-none" style="font-family: 'Playfair Display', serif;">
-          Qarun
-        </h1>
+  <!-- Outer Gates (Cover) -->
+  <div id="gatesContainer" class="absolute inset-0 z-50 pointer-events-none">
+    <!-- Left Gate -->
+    <div
+      id="gateLeft"
+      class="absolute left-0 top-0 w-1/2 h-full bg-[#0a0a0a] border-r-[2px] border-[#C5A059]/50 flex items-center justify-end overflow-hidden will-change-transform shadow-[15px_0_50px_rgba(0,0,0,0.95)]"
+    >
+      <div
+        class="absolute inset-0 opacity-[0.04]"
+        style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n1%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n1)%22/%3E%3C/svg%3E');"
+      >
       </div>
-      <div class="h-px w-20 bg-gradient-to-r from-amber-500 to-transparent"></div>
-      <p class="text-amber-100/60 text-sm font-light tracking-widest italic">Lost in Eternity</p>
+      <div
+        class="absolute inset-4 md:inset-8 border border-[#C5A059]/20 border-r-0"
+      >
+      </div>
+      <div
+        class="absolute right-0 translate-x-1/2 flex items-center justify-center opacity-20"
+      >
+        <div class="w-72 h-72 border border-[#C5A059] rounded-full"></div>
+      </div>
+      <!-- Left Gate Vertical Mantra -->
+      <div
+        class="absolute right-8 md:right-16 top-1/2 -translate-y-1/2 flex flex-col items-center opacity-40"
+      >
+        <span
+          class="text-[#C5A059] text-lg md:text-2xl font-serif tracking-[0.5em]"
+          style="writing-mode: vertical-rl; text-orientation: upright;"
+          >ꦲꦤꦕꦫꦏꦢꦠꦱꦮꦭ</span
+        >
+      </div>
+    </div>
+
+    <!-- Right Gate -->
+    <div
+      id="gateRight"
+      class="absolute right-0 top-0 w-1/2 h-full bg-[#0a0a0a] border-l-[2px] border-[#C5A059]/50 flex items-center justify-start overflow-hidden will-change-transform shadow-[-15px_0_50px_rgba(0,0,0,0.95)]"
+    >
+      <div
+        class="absolute inset-0 opacity-[0.04]"
+        style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n2%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n2)%22/%3E%3C/svg%3E');"
+      >
+      </div>
+      <div
+        class="absolute inset-4 md:inset-8 border border-[#C5A059]/20 border-l-0"
+      >
+      </div>
+      <div
+        class="absolute left-0 -translate-x-1/2 flex items-center justify-center opacity-20"
+      >
+        <div class="w-72 h-72 border border-[#C5A059] rounded-full"></div>
+      </div>
+      <!-- Right Gate Vertical Mantra -->
+      <div
+        class="absolute left-8 md:left-16 top-1/2 -translate-y-1/2 flex flex-col items-center opacity-40"
+      >
+        <span
+          class="text-[#C5A059] text-lg md:text-2xl font-serif tracking-[0.5em]"
+          style="writing-mode: vertical-rl; text-orientation: upright;"
+          >ꦥꦣꦗꦪꦚꦩꦒꦧꦛꦔ</span
+        >
+      </div>
+    </div>
+
+    <!-- Gate Center Emblem -->
+    <div
+      id="gateEmblem"
+      class="absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300"
+    >
+      <!-- Mystical Emblem Mantra Background -->
+      <div
+        class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 mix-blend-screen z-0 animate-[spin_60s_linear_infinite]"
+      >
+        <svg
+          viewBox="0 0 400 400"
+          class="w-[150%] h-[150%] md:w-[80vw] md:h-[80vw] max-w-[800px] max-h-[800px] drop-shadow-[0_0_15px_rgba(197,160,89,0.4)]"
+        >
+          <path
+            id="emblemMantra"
+            d="M 200, 50 a 150,150 0 1,1 0,300 a 150,150 0 1,1 0,-300"
+            fill="none"></path>
+          <text>
+            <textPath
+              href="#emblemMantra"
+              startOffset="0%"
+              class="text-[11px] md:text-[12px] fill-[#C5A059] font-serif tracking-[0.5em]"
+            >
+              ꦏꦼꦱꦸꦚꦶꦪꦤ꧀ ꦲꦶꦁ ꦱꦼꦧꦭꦶꦏ꧀ ꦕꦲꦪ ꦢꦤ꧀ ꦧꦪꦔꦤ꧀ ꦏꦼꦱꦸꦚꦶꦪꦤ꧀ ꦲꦶꦁ ꦱꦼꦧꦭꦶꦏ꧀ ꦕꦲꦪ ꦢꦤ꧀
+              ꦧꦪꦔꦤ꧀
+            </textPath>
+          </text>
+        </svg>
+      </div>
+
+      <span
+        class="text-[#C5A059] tracking-[0.4em] text-[10px] md:text-xs uppercase mb-6 font-light opacity-80 z-50"
+        >Maison</span
+      >
+      <h1
+        class="text-[50px] md:text-[80px] lg:text-[110px] text-[#F8F5F0] font-serif tracking-normal leading-none z-50"
+        style="font-family: 'Playfair Display', serif;"
+      >
+        Qarun
+      </h1>
+      <p
+        class="text-[#A39E93] tracking-[0.2em] text-sm md:text-base font-serif italic z-50 mt-8"
+      >
+        de Aurimori
+      </p>
     </div>
   </div>
 
-  <!-- Right gate with gradient -->
-  <div id="gateRight" class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-slate-950 via-slate-900 to-transparent flex items-center justify-end pr-16 border-l border-amber-600/20">
-    <div class="flex flex-col items-end space-y-6">
-      <div class="space-y-2">
-        <p class="text-amber-50/70 text-sm font-light leading-relaxed max-w-xs text-right">
-          Beyond the threshold lies what time forgot—
+  <!-- Inner Journal Area (Z-40) -->
+  <div
+    id="innerJournal"
+    class="absolute inset-0 z-40 bg-[#0c0c0c] flex flex-col items-center justify-center will-change-transform opacity-100"
+  >
+    <div
+      class="absolute inset-0 opacity-[0.05] pointer-events-none"
+      style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n3%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n3)%22/%3E%3C/svg%3E');"
+    >
+    </div>
+
+    <!-- Elegant Book Frame inside Journal -->
+    <div
+      class="absolute inset-6 md:inset-12 border border-[#C5A059]/10 pointer-events-none"
+    >
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-[#C5A059]/5"
+      >
+      </div>
+    </div>
+
+    <!-- Stage: Foundation -->
+    <div
+      id="stageFoundation"
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 will-change-transform"
+    >
+      <div
+        class="relative w-40 h-40 md:w-64 md:h-64 flex items-center justify-center mb-10"
+      >
+        <!-- Rotating Mantra -->
+        <div
+          class="absolute inset-0 flex items-center justify-center animate-[spin_30s_linear_infinite_reverse] z-10 pointer-events-none"
+        >
+          <svg
+            viewBox="0 0 200 200"
+            class="absolute w-[160%] h-[160%] md:w-[150%] md:h-[150%] opacity-60 drop-shadow-[0_0_10px_rgba(197,160,89,0.4)]"
+          >
+            <path
+              id="mantraCircle"
+              d="M 100, 25 a 75,75 0 1,1 0,150 a 75,75 0 1,1 0,-150"
+              fill="none"></path>
+            <text>
+              <textPath
+                href="#mantraCircle"
+                startOffset="0%"
+                class="text-[13px] md:text-[14px] fill-[#C5A059] font-serif tracking-[0.25em]"
+              >
+                ꦲꦤꦕꦫꦏ ꦢꦠꦱꦮꦭ ꦥꦣꦗꦪꦚ ꦩꦒꦧꦛꦔ ꦲꦤꦕꦫꦏ ꦢꦠꦱꦮꦭ ꦥꦣꦗꦪ
+              </textPath>
+            </text>
+          </svg>
+        </div>
+
+        <div
+          class="absolute w-32 h-32 md:w-48 md:h-48 border border-[#C5A059]/30 rotate-45 transform origin-center animate-[spin_20s_linear_infinite]"
+        >
+        </div>
+        <div
+          class="absolute w-24 h-24 md:w-36 md:h-36 border border-[#C5A059]/50 rounded-full animate-[spin_15s_linear_infinite_reverse] border-dashed"
+        >
+        </div>
+        <div
+          class="w-2 h-2 bg-[#C5A059] rounded-full shadow-[0_0_15px_rgba(197,160,89,1)]"
+        >
+        </div>
+      </div>
+      <h2
+        class="text-4xl md:text-5xl text-[#C5A059] font-serif mb-6 drop-shadow-[0_0_15px_rgba(197,160,89,0.5)] z-20"
+      >
+        ꦲꦤꦕꦫꦏ
+      </h2>
+      <p
+        class="text-[#A39E93] tracking-[0.6em] text-[9px] md:text-[11px] uppercase font-light z-20"
+      >
+        I. The Foundation
+      </p>
+    </div>
+
+    <!-- Stage: Vision -->
+    <div
+      id="stageVision"
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 px-6 text-center will-change-transform"
+    >
+      <div class="relative w-full h-48 md:h-64 flex justify-center mb-10">
+        <div
+          class="absolute w-40 h-40 md:w-56 md:h-56 rounded-full bg-[#C5A059] opacity-[0.08] blur-2xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+        </div>
+        <!-- Needle -->
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-56 md:h-72 bg-gradient-to-b from-transparent via-[#C5A059]/60 to-transparent z-0"
+        >
+        </div>
+        <!-- Astrolabe / Lens UI -->
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 flex items-center justify-center pointer-events-none"
+        >
+          <div
+            class="absolute w-full h-full border-[1px] border-[#C5A059]/20 rounded-full border-dashed animate-[spin_40s_linear_infinite]"
+          >
+          </div>
+          <div
+            class="absolute w-[80%] h-[80%] border-[1px] border-[#C5A059]/30 rounded-full animate-[spin_25s_linear_infinite_reverse]"
+          >
+          </div>
+          <div
+            class="absolute w-[60%] h-[60%] border-[1px] border-[#C5A059]/10 rounded-full"
+          >
+          </div>
+          <div
+            class="absolute w-12 h-12 md:w-16 md:h-16 border-[1px] border-[#C5A059]/60 rotate-45 z-10 drop-shadow-[0_0_10px_rgba(197,160,89,0.5)]"
+          >
+          </div>
+          <div
+            class="absolute w-2 h-2 bg-[#F8F5F0] rounded-full animate-pulse blur-[1px] drop-shadow-[0_0_5px_rgba(248,245,240,1)]"
+          >
+          </div>
+          <div
+            class="absolute w-[120%] h-[1px] bg-gradient-to-r from-transparent via-[#C5A059]/30 to-transparent"
+          >
+          </div>
+        </div>
+      </div>
+      <h2
+        class="text-4xl md:text-5xl text-[#C5A059] font-serif mb-6 drop-shadow-[0_0_15px_rgba(197,160,89,0.5)] z-20"
+      >
+        ꦱꦸꦫꦢꦶꦫ
+      </h2>
+      <p
+        class="text-[#F8F5F0] font-serif italic text-2xl md:text-3xl lg:text-4xl leading-relaxed tracking-wide font-light max-w-3xl z-20"
+      >
+        "In the orchestration of shadow and light,<br />digital stillness is
+        born."
+      </p>
+      <p
+        class="text-[#A39E93] tracking-[0.6em] text-[9px] md:text-[11px] uppercase mt-12 font-light"
+      >
+        II. The Vision
+      </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         STAGE III — THE ABANDONED BIRTH
+         "Kelahiran yang Dibuang"
+         scroll range: 0.31 → 0.415
+         ═══════════════════════════════════════════════ -->
+    <div
+      id="stageStory1"
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 px-6 text-center will-change-transform"
+    >
+      <div
+        class="relative w-32 h-32 md:w-44 md:h-44 mb-10 flex items-center justify-center"
+      >
+        <svg
+          viewBox="0 0 200 200"
+          class="absolute w-full h-full animate-[spin_40s_linear_infinite] opacity-30"
+        >
+          <circle
+            cx="100"
+            cy="100"
+            r="80"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="0.5"
+            stroke-dasharray="4 8"></circle>
+        </svg>
+        <svg viewBox="0 0 200 200" class="absolute w-[85%] h-[85%] opacity-50">
+          <g transform="translate(100,100)">
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"></line>
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"
+              transform="rotate(30)"></line>
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"
+              transform="rotate(60)"></line>
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"
+              transform="rotate(90)"></line>
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"
+              transform="rotate(120)"></line>
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"
+              transform="rotate(150)"></line>
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"
+              transform="rotate(180)"></line>
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"
+              transform="rotate(210)"></line>
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"
+              transform="rotate(240)"></line>
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"
+              transform="rotate(270)"></line>
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"
+              transform="rotate(300)"></line>
+            <line
+              x1="0"
+              y1="-70"
+              x2="0"
+              y2="-55"
+              stroke="#C5A059"
+              stroke-width="1.5"
+              transform="rotate(330)"></line>
+            <circle r="25" fill="none" stroke="#C5A059" stroke-width="1"
+            ></circle>
+            <circle r="3" fill="#C5A059"></circle>
+          </g>
+        </svg>
+        <svg viewBox="0 0 200 60" class="absolute bottom-0 w-full opacity-30">
+          <ellipse
+            cx="100"
+            cy="30"
+            rx="70"
+            ry="12"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1"></ellipse>
+          <ellipse
+            cx="100"
+            cy="30"
+            rx="50"
+            ry="8"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="0.5"></ellipse>
+        </svg>
+      </div>
+
+      <span
+        class="text-[#C5A059] tracking-[0.5em] text-sm md:text-base font-serif opacity-50 mb-4"
+        >ꦏꦫ꧀ꦤ</span
+      >
+      <p
+        class="text-[#F8F5F0] font-serif italic text-xl md:text-3xl leading-relaxed tracking-wide font-light max-w-2xl"
+      >
+        "Born armored in gold, kissed by Surya himself —<br />
+        placed in a basket on the river's mercy<br />
+        by the hands of the mother who could not keep him."
+      </p>
+      <p
+        class="text-[#A39E93] text-base md:text-xl font-serif italic mt-6 max-w-xl opacity-70"
+      >
+        He did not choose his birth. He did not choose to be abandoned.<br />
+        Yet he chose, every day thereafter, who he would become.
+      </p>
+      <p
+        class="text-[#A39E93] tracking-[0.6em] text-[9px] md:text-[11px] uppercase mt-10 font-light"
+      >
+        III. Kelahiran yang Dibuang
+      </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         STAGE IV — SON OF THE CHARIOTEER
+         "Sang Suta Putra"
+         scroll range: 0.40 → 0.515
+         ═══════════════════════════════════════════════ -->
+    <div
+      id="stageStory2"
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 px-6 text-center will-change-transform"
+    >
+      <div
+        class="relative w-28 h-40 md:w-36 md:h-52 mb-10 flex items-center justify-center"
+      >
+        <svg
+          viewBox="0 0 80 160"
+          class="w-full h-full opacity-60 drop-shadow-[0_0_12px_rgba(197,160,89,0.4)]"
+        >
+          <path
+            d="M 60 10 Q 10 80 60 150"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="2"
+            stroke-linecap="round"></path>
+          <line
+            x1="60"
+            y1="10"
+            x2="60"
+            y2="150"
+            stroke="#C5A059"
+            stroke-width="0.8"
+            opacity="0.6"></line>
+          <line
+            x1="15"
+            y1="80"
+            x2="72"
+            y2="80"
+            stroke="#C5A059"
+            stroke-width="1.5"
+            stroke-linecap="round"></line>
+          <polygon points="72,80 65,76 65,84" fill="#C5A059"></polygon>
+          <path
+            d="M 15 80 L 10 74 M 15 80 L 10 86"
+            stroke="#C5A059"
+            stroke-width="1"
+            fill="none"></path>
+        </svg>
+      </div>
+
+      <span
+        class="text-[#C5A059] tracking-[0.5em] text-sm md:text-base font-serif opacity-50 mb-4"
+        >ꦱꦸꦠꦥꦸꦠꦿ</span
+      >
+      <p
+        class="text-[#F8F5F0] font-serif italic text-xl md:text-3xl leading-relaxed tracking-wide font-light max-w-2xl"
+      >
+        "His arrow split the cloud before the masters could teach him.<br />
+        His arm already knew what his blood was never told."
+      </p>
+      <p
+        class="text-[#A39E93] text-base md:text-xl font-serif italic mt-6 max-w-xl opacity-70"
+      >
+        But when he stood in the tournament ring and dared to match Arjuna —<br
+        />
+        the crowd did not ask of his skill.<br />
+        They asked of his father's name.<br />
+        <span class="text-[#C5A059]/70">And laughed.</span>
+      </p>
+      <p
+        class="text-[#F8F5F0] font-serif italic text-lg md:text-2xl mt-6 max-w-lg opacity-80"
+      >
+        "Greatness has never required permission.<br />
+        But the world will always demand your papers."
+      </p>
+      <p
+        class="text-[#A39E93] tracking-[0.6em] text-[9px] md:text-[11px] uppercase mt-10 font-light"
+      >
+        IV. Sang Suta Putra
+      </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         STAGE V — THE OATH OF ANGA
+         "Sumpah Persaudaraan"
+         scroll range: 0.49 → 0.615
+         ═══════════════════════════════════════════════ -->
+    <div
+      id="stageStory3"
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 px-6 text-center will-change-transform"
+    >
+      <div class="relative mb-10 flex items-center justify-center">
+        <svg
+          viewBox="0 0 160 100"
+          class="w-48 md:w-64 opacity-60 drop-shadow-[0_0_12px_rgba(197,160,89,0.4)]"
+        >
+          <path
+            d="M 20 80 L 20 50 L 50 20 L 80 50 L 110 20 L 140 50 L 140 80 Z"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.5"
+            stroke-linejoin="round"></path>
+          <circle
+            cx="80"
+            cy="50"
+            r="5"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.5"></circle>
+          <circle cx="80" cy="50" r="2" fill="#C5A059"></circle>
+          <path
+            d="M 55 88 Q 80 70 105 88"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.5"></path>
+          <path
+            d="M 65 90 Q 80 78 95 90"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="0.8"
+            opacity="0.4"></path>
+          <path
+            d="M 30 95 Q 50 85 55 75"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.2"
+            opacity="0.5"></path>
+          <path
+            d="M 130 95 Q 110 85 105 75"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.2"
+            opacity="0.5"></path>
+        </svg>
+      </div>
+
+      <span
+        class="text-[#C5A059] tracking-[0.5em] text-sm md:text-base font-serif opacity-50 mb-4"
+        >ꦲꦁꦒ</span
+      >
+      <p
+        class="text-[#F8F5F0] font-serif italic text-xl md:text-3xl leading-relaxed tracking-wide font-light max-w-2xl"
+      >
+        "When all the world named him lowborn,<br />
+        one man stepped forward and placed a crown upon his head."
+      </p>
+      <p
+        class="text-[#A39E93] text-base md:text-xl font-serif italic mt-6 max-w-xl opacity-70"
+      >
+        Duryodana asked nothing in return.<br />
+        And so Karna gave everything —<br />
+        not from debt, but from a gratitude<br />
+        that became the marrow of his loyalty.
+      </p>
+      <p
+        class="text-[#F8F5F0] font-serif italic text-lg md:text-2xl mt-6 max-w-lg opacity-80"
+      >
+        "A vow born in the hour of humiliation<br />
+        is the vow that outlives death itself."
+      </p>
+      <p
+        class="text-[#A39E93] tracking-[0.6em] text-[9px] md:text-[11px] uppercase mt-10 font-light"
+      >
+        V. Sumpah Persaudaraan
+      </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         STAGE VI — THE STRIPPING OF THE ARMOR
+         "Pelucutan Kavacha Kundala"
+         scroll range: 0.58 → 0.705
+         ═══════════════════════════════════════════════ -->
+    <div
+      id="stageStory4"
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 px-6 text-center will-change-transform"
+    >
+      <div
+        class="relative w-40 h-32 md:w-52 md:h-40 mb-10 flex items-center justify-center"
+      >
+        <svg
+          viewBox="0 0 160 120"
+          class="w-full h-full opacity-60 drop-shadow-[0_0_15px_rgba(197,160,89,0.5)]"
+        >
+          <path
+            d="M 30 110 Q 20 90 25 70 Q 28 55 35 50 Q 42 48 45 55 Q 48 45 55 43 Q 62 42 63 52 Q 67 42 74 42 Q 81 43 80 55 L 80 70 Q 90 65 90 80 Q 90 100 75 110 Z"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.5"
+            stroke-linejoin="round"></path>
+          <path
+            d="M 55 80 Q 55 90 52 100"
+            stroke="#C5A059"
+            stroke-width="1"
+            fill="none"
+            opacity="0.5"></path>
+          <path
+            d="M 65 78 Q 66 88 64 98"
+            stroke="#C5A059"
+            stroke-width="1"
+            fill="none"
+            opacity="0.5"></path>
+          <ellipse
+            cx="80"
+            cy="30"
+            rx="18"
+            ry="10"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.5"></ellipse>
+          <ellipse
+            cx="80"
+            cy="30"
+            rx="12"
+            ry="6"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="0.8"
+            opacity="0.6"></ellipse>
+          <circle cx="80" cy="30" r="3" fill="#C5A059" opacity="0.8"></circle>
+          <line
+            x1="80"
+            y1="18"
+            x2="80"
+            y2="13"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.4"></line>
+          <line
+            x1="92"
+            y1="22"
+            x2="96"
+            y2="18"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.4"></line>
+          <line
+            x1="68"
+            y1="22"
+            x2="64"
+            y2="18"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.4"></line>
+        </svg>
+      </div>
+
+      <span
+        class="text-[#C5A059] tracking-[0.5em] text-sm md:text-base font-serif opacity-50 mb-4"
+        >ꦏꦮꦕꦏꦸꦤ꧀ꦝꦭ</span
+      >
+      <p
+        class="text-[#F8F5F0] font-serif italic text-xl md:text-3xl leading-relaxed tracking-wide font-light max-w-2xl"
+      >
+        "Indra came disguised as a beggar,<br />
+        begging for the armor fused to his very flesh."
+      </p>
+      <p
+        class="text-[#A39E93] text-base md:text-xl font-serif italic mt-6 max-w-xl opacity-70"
+      >
+        Karna knew it was a trap.<br />
+        He gave it anyway —<br />
+        tearing the Kavacha from his own bleeding skin,<br />
+        removing the Kundala from his ears,<br />
+        placing both into the beggar's hands<br />
+        with a smile that shamed the sun.
+      </p>
+      <p
+        class="text-[#F8F5F0] font-serif italic text-lg md:text-2xl mt-6 max-w-lg opacity-80"
+      >
+        "Generosity to Karna was not a choice.<br />
+        It was the only shape his soul knew how to take."
+      </p>
+      <p
+        class="text-[#A39E93] tracking-[0.6em] text-[9px] md:text-[11px] uppercase mt-10 font-light"
+      >
+        VI. Pelucutan Kavacha-Kundala
+      </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         STAGE VII — KURUKSHETRA AT DAWN
+         "Fajar Perang"
+         scroll range: 0.67 → 0.77
+         ═══════════════════════════════════════════════ -->
+    <div
+      id="stageStory5"
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 px-6 text-center will-change-transform"
+    >
+      <div
+        class="relative w-full max-w-sm h-28 md:h-36 mb-10 flex items-center justify-center"
+      >
+        <svg viewBox="0 0 320 100" class="w-full h-full">
+          <line
+            x1="0"
+            y1="70"
+            x2="320"
+            y2="70"
+            stroke="#C5A059"
+            stroke-width="0.5"
+            opacity="0.3"></line>
+          <path
+            d="M 0 70 L 20 65 L 35 68 L 50 60 L 65 66 L 80 55 L 95 65 L 110 58 L 130 65 L 145 60 L 160 55 L 175 62 L 190 57 L 205 65 L 220 60 L 235 68 L 250 62 L 265 70 L 280 65 L 295 70 L 320 68 L 320 100 L 0 100 Z"
+            fill="#0a0a0a"
+            stroke="#C5A059"
+            stroke-width="0.5"
+            opacity="0.5"></path>
+          <line
+            x1="60"
+            y1="65"
+            x2="58"
+            y2="30"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.4"></line>
+          <line
+            x1="120"
+            y1="58"
+            x2="118"
+            y2="20"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.4"></line>
+          <line
+            x1="180"
+            y1="55"
+            x2="178"
+            y2="15"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.4"></line>
+          <line
+            x1="240"
+            y1="60"
+            x2="238"
+            y2="25"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.4"></line>
+          <polygon points="58,30 55,36 61,36" fill="#C5A059" opacity="0.4"
+          ></polygon>
+          <polygon points="118,20 115,26 121,26" fill="#C5A059" opacity="0.4"
+          ></polygon>
+          <polygon points="178,15 175,21 181,21" fill="#C5A059" opacity="0.4"
+          ></polygon>
+          <polygon points="238,25 235,31 241,31" fill="#C5A059" opacity="0.4"
+          ></polygon>
+          <circle
+            cx="160"
+            cy="45"
+            r="15"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="0.8"
+            opacity="0.3"></circle>
+          <circle
+            cx="160"
+            cy="45"
+            r="8"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.5"
+            opacity="0.5"></circle>
+          <ellipse cx="160" cy="70" rx="80" ry="8" fill="#C5A059" opacity="0.03"
+          ></ellipse>
+        </svg>
+      </div>
+
+      <span
+        class="text-[#C5A059] tracking-[0.5em] text-sm md:text-base font-serif opacity-50 mb-4"
+        >ꦏꦸꦫꦸꦏ꧀ꦱꦼꦠꦿ</span
+      >
+      <p
+        class="text-[#F8F5F0] font-serif italic text-xl md:text-3xl leading-relaxed tracking-wide font-light max-w-2xl"
+      >
+        "Eighteen days. The sky learned to grieve.<br />
+        Conch shells wept across a field<br />
+        that would soon drink the blood of brothers."
+      </p>
+      <p
+        class="text-[#A39E93] text-base md:text-xl font-serif italic mt-6 max-w-xl opacity-70"
+      >
+        Three curses sat upon Karna like stones —<br />
+        his wheel would sink at the final hour,<br />
+        his memory of the Brahmastra would fail him when needed most,<br />
+        his greatest arrow, once released, could never fly again.<br />
+        He knew all of this.<br />
+        <span class="text-[#C5A059]/70">He stood at the front line anyway.</span
+        >
+      </p>
+      <p
+        class="text-[#F8F5F0] font-serif italic text-lg md:text-2xl mt-6 max-w-lg opacity-80"
+      >
+        "Courage is not the absence of knowing the cost.<br />
+        It is the willingness to pay it."
+      </p>
+      <p
+        class="text-[#A39E93] tracking-[0.6em] text-[9px] md:text-[11px] uppercase mt-10 font-light"
+      >
+        VII. Fajar Kurukshetra
+      </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         STAGE VIII — THE FINAL ARROW
+         "Panah Terakhir"
+         scroll range: 0.72 → 0.80
+         ═══════════════════════════════════════════════ -->
+    <div
+      id="stageStory6"
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 px-6 text-center will-change-transform"
+    >
+      <div class="relative h-40 md:h-52 mb-8 flex flex-col items-center">
+        <svg
+          viewBox="0 0 40 200"
+          class="h-full opacity-70 drop-shadow-[0_0_15px_rgba(197,160,89,0.6)]"
+        >
+          <line
+            x1="20"
+            y1="0"
+            x2="20"
+            y2="170"
+            stroke="#C5A059"
+            stroke-width="2"
+            stroke-linecap="round"></line>
+          <polygon points="20,200 10,175 30,175" fill="#C5A059"></polygon>
+          <path
+            d="M 20 10 L 10 30 M 20 10 L 30 30"
+            stroke="#C5A059"
+            stroke-width="1.5"
+            fill="none"></path>
+          <line
+            x1="12"
+            y1="50"
+            x2="12"
+            y2="30"
+            stroke="#C5A059"
+            stroke-width="0.5"
+            opacity="0.3"></line>
+          <line
+            x1="28"
+            y1="50"
+            x2="28"
+            y2="30"
+            stroke="#C5A059"
+            stroke-width="0.5"
+            opacity="0.3"></line>
+        </svg>
+      </div>
+
+      <span
+        class="text-[#C5A059] tracking-[0.5em] text-sm md:text-base font-serif opacity-50 mb-4"
+        >ꦥꦤꦃꦠꦼꦫꦏꦃꦭꦶꦂ</span
+      >
+      <p
+        class="text-[#F8F5F0] font-serif italic text-xl md:text-3xl leading-relaxed tracking-wide font-light max-w-2xl"
+      >
+        "His chariot wheel sank into the earth.<br />
+        He stepped down. Unarmed.<br />
+        He called out — 'A warrior does not strike a defenseless man.'"
+      </p>
+      <p
+        class="text-[#A39E93] text-base md:text-xl font-serif italic mt-6 max-w-xl opacity-70"
+      >
+        But dharma, that day, did not answer.<br />
+        Krishna whispered into Arjuna's ear<br />
+        of every rule Karna's side had broken —<br />
+        and the bowstring was drawn.
+      </p>
+      <p
+        class="text-[#F8F5F0] font-serif italic text-lg md:text-2xl mt-6 max-w-lg opacity-80"
+      >
+        "He died calling out for justice<br />
+        in a war where justice had long since fled."
+      </p>
+      <p
+        class="text-[#A39E93] tracking-[0.6em] text-[9px] md:text-[11px] uppercase mt-10 font-light"
+      >
+        VIII. Panah Terakhir
+      </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         STAGE IX — THE REVELATION
+         "Wahyu — Ibu yang Terlambat"
+         scroll range: 0.77 → 0.84
+         ═══════════════════════════════════════════════ -->
+    <div
+      id="stageStory7"
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 px-6 text-center will-change-transform"
+    >
+      <div
+        class="relative w-56 h-36 md:w-72 md:h-44 mb-10 flex items-center justify-center"
+      >
+        <svg viewBox="0 0 200 120" class="w-full h-full opacity-50">
+          <line
+            x1="20"
+            y1="100"
+            x2="180"
+            y2="100"
+            stroke="#C5A059"
+            stroke-width="0.5"
+            opacity="0.5"></line>
+          <path
+            d="M 30 90 Q 80 80 130 88"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="2"
+            stroke-linecap="round"></path>
+          <circle
+            cx="30"
+            cy="86"
+            r="8"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.5"></circle>
+          <circle
+            cx="155"
+            cy="70"
+            r="8"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.5"></circle>
+          <path
+            d="M 155 78 Q 155 90 148 100"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.5"
+            stroke-linecap="round"></path>
+          <path
+            d="M 155 82 Q 142 88 130 90"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.5"
+            stroke-linecap="round"></path>
+          <path
+            d="M 148 65 Q 165 55 172 70 Q 165 80 155 78"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="0.8"
+            opacity="0.5"></path>
+          <circle cx="150" cy="92" r="1.5" fill="#C5A059" opacity="0.5"
+          ></circle>
+          <circle cx="147" cy="97" r="1" fill="#C5A059" opacity="0.4"></circle>
+          <line
+            x1="100"
+            y1="0"
+            x2="80"
+            y2="88"
+            stroke="#C5A059"
+            stroke-width="0.5"
+            opacity="0.2"
+            stroke-dasharray="3 4"></line>
+          <line
+            x1="100"
+            y1="0"
+            x2="100"
+            y2="88"
+            stroke="#C5A059"
+            stroke-width="0.5"
+            opacity="0.2"
+            stroke-dasharray="3 4"></line>
+        </svg>
+      </div>
+
+      <span
+        class="text-[#C5A059] tracking-[0.5em] text-sm md:text-base font-serif opacity-50 mb-4"
+        >ꦮꦃꦪꦸ</span
+      >
+      <p
+        class="text-[#F8F5F0] font-serif italic text-xl md:text-3xl leading-relaxed tracking-wide font-light max-w-2xl"
+      >
+        "Only when he lay dying<br />
+        did his mother come to weep —<br />
+        and whisper the truth she had swallowed for a lifetime."
+      </p>
+      <p
+        class="text-[#A39E93] text-base md:text-xl font-serif italic mt-6 max-w-xl opacity-70"
+      >
+        <em>"You are my firstborn. You are their eldest brother."</em><br /><br
+        />
+        He looked at her. Bleeding. Quiet.<br />
+        And said —<br />
+        <em
+          >"Then let it remain your secret still.<br />
+          I die as Karna. Son of a charioteer. King of Anga.<br />
+          Loyal to his word. That is enough."</em
+        >
+      </p>
+      <p
+        class="text-[#A39E93] tracking-[0.6em] text-[9px] md:text-[11px] uppercase mt-10 font-light"
+      >
+        IX. Wahyu yang Terlambat
+      </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         STAGE X — THE ETERNAL LEGACY
+         "Warisan Abadi"
+         scroll range: 0.82 → 0.885
+         ═══════════════════════════════════════════════ -->
+    <div
+      id="stageStory8"
+      class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 px-6 text-center will-change-transform"
+    >
+      <div
+        class="relative w-40 h-32 md:w-52 md:h-40 mb-10 flex items-center justify-center"
+      >
+        <svg viewBox="0 0 200 120" class="w-full h-full">
+          <line
+            x1="0"
+            y1="90"
+            x2="200"
+            y2="90"
+            stroke="#C5A059"
+            stroke-width="0.8"
+            opacity="0.4"></line>
+          <clipPath id="horizonClip">
+            <rect x="0" y="0" width="200" height="90"></rect>
+          </clipPath>
+          <circle
+            cx="100"
+            cy="90"
+            r="38"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1.5"
+            opacity="0.6"
+            clip-path="url(#horizonClip)"></circle>
+          <circle
+            cx="100"
+            cy="90"
+            r="25"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="0.8"
+            opacity="0.4"
+            clip-path="url(#horizonClip)"></circle>
+          <circle
+            cx="100"
+            cy="90"
+            r="12"
+            fill="#C5A059"
+            opacity="0.15"
+            clip-path="url(#horizonClip)"></circle>
+          <line
+            x1="100"
+            y1="52"
+            x2="100"
+            y2="42"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.5"></line>
+          <line
+            x1="73"
+            y1="63"
+            x2="66"
+            y2="56"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.4"></line>
+          <line
+            x1="127"
+            y1="63"
+            x2="134"
+            y2="56"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.4"></line>
+          <line
+            x1="62"
+            y1="90"
+            x2="50"
+            y2="90"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.3"></line>
+          <line
+            x1="138"
+            y1="90"
+            x2="150"
+            y2="90"
+            stroke="#C5A059"
+            stroke-width="1"
+            opacity="0.3"></line>
+          <path
+            d="M 100 85 Q 105 70 100 55 Q 95 40 100 25"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="1"
+            stroke-dasharray="2 4"
+            opacity="0.6"></path>
+          <circle cx="100" cy="22" r="2" fill="#C5A059" opacity="0.7"></circle>
+          <path
+            d="M 60 95 Q 100 100 140 95"
+            fill="none"
+            stroke="#C5A059"
+            stroke-width="0.5"
+            opacity="0.2"></path>
+        </svg>
+      </div>
+
+      <span
+        class="text-[#C5A059] tracking-[0.5em] text-sm md:text-base font-serif opacity-50 mb-4"
+        >ꦮꦫꦶꦱꦤ꧀ꦲꦧꦢꦶ</span
+      >
+      <p
+        class="text-[#F8F5F0] font-serif italic text-xl md:text-3xl leading-relaxed tracking-wide font-light max-w-2xl"
+      >
+        "He turned his face toward the sun —<br />
+        his true father, witness to everything —<br />
+        and breathed his last breath upward."
+      </p>
+      <p
+        class="text-[#A39E93] text-base md:text-xl font-serif italic mt-6 max-w-2xl opacity-70"
+      >
+        He was not defeated.<br />
+        He was not diminished.<br />
+        He died precisely who he had chosen to be —<br />
+        generous beyond reason, loyal beyond blood,<br />
+        courageous beyond the reach of any curse.<br /><br />
+        <span
+          class="text-[#C5A059]/80 not-italic tracking-widest text-sm uppercase"
+        >
+          The world forgets the winner.<br />
+          It never forgets Karna.
+        </span>
+      </p>
+      <div class="mt-10 border border-[#C5A059]/20 px-8 py-5 max-w-xl">
+        <p
+          class="text-[#F8F5F0] font-serif italic text-base md:text-lg leading-relaxed opacity-80"
+        >
+          "Your origin is not your destiny.<br />
+          Your loyalty defines you more than your victories.<br />
+          Give even when it costs you everything.<br />
+          Stand even when every curse has been fulfilled.<br />
+          The bravest thing you will ever do<br />
+          is remain yourself — when the world has given you every reason not to."
         </p>
-        <p class="text-amber-50/50 text-xs font-light tracking-wide">
-          the sanctuary of the forgotten
-        </p>
       </div>
-      <div class="w-16 h-px bg-gradient-to-l from-amber-500/80 to-transparent"></div>
+      <p
+        class="text-[#A39E93] tracking-[0.6em] text-[9px] md:text-[11px] uppercase mt-10 font-light"
+      >
+        X. Warisan Abadi — Adipati Basukarna
+      </p>
     </div>
   </div>
 
-  <!-- Center light pillar - soft gold -->
-  <div id="lightPillar" class="absolute left-1/2 top-0 w-2 h-full bg-gradient-to-b from-amber-200 via-amber-100/50 to-transparent opacity-0 -translate-x-1/2 blur-sm"></div>
-
-  <!-- Light rays - multiple for star burst effect -->
-  <div id="lightRays" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-0">
-    <div class="absolute left-1/2 top-1/2 w-96 h-px bg-gradient-to-r from-transparent via-amber-300/40 to-transparent -translate-x-1/2 -translate-y-1/2" style="transform: translate(-50%, -50%) rotate(0deg);"></div>
-    <div class="absolute left-1/2 top-1/2 w-96 h-px bg-gradient-to-r from-transparent via-amber-300/40 to-transparent -translate-x-1/2 -translate-y-1/2" style="transform: translate(-50%, -50%) rotate(45deg);"></div>
-    <div class="absolute left-1/2 top-1/2 w-96 h-px bg-gradient-to-r from-transparent via-amber-300/40 to-transparent -translate-x-1/2 -translate-y-1/2" style="transform: translate(-50%, -50%) rotate(90deg);"></div>
-  </div>
-
-  <!-- Central glow effect - soft gold -->
-  <div id="centerGlow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-amber-300/50 to-transparent rounded-full blur-3xl opacity-0"></div>
-
-  <!-- Fade overlay - golden color matching light pillar -->
-  <div id="fadeOverlay" class="absolute inset-0 opacity-0 pointer-events-none -z-5 bg-gradient-to-b from-amber-200/0 via-amber-100/20 to-amber-50/10"></div>
-
-  <!-- Progressive content reveals -->
-  <div id="progressContent" class="absolute inset-0 flex items-center justify-center pointer-events-none">
-    <!-- Stage 1: Initial -->
-    <div id="stage1" class="absolute text-center opacity-100 transition-opacity duration-300">
-      <p class="text-amber-100/40 text-xs tracking-widest mb-6">THE GATEWAY AWAITS</p>
-      <div class="flex justify-center gap-2">
-        <div class="w-px h-8 bg-gradient-to-b from-amber-400 via-amber-300 to-transparent"></div>
-        <div class="w-px h-8 bg-gradient-to-b from-amber-300 via-amber-200 to-transparent"></div>
-        <div class="w-px h-8 bg-gradient-to-b from-amber-200 via-amber-100 to-transparent"></div>
+  <!-- Subtle Scroll Prompt outside -->
+  <div
+    id="scrollPrompt"
+    class="absolute inset-x-0 bottom-8 z-[60] flex flex-col items-center pointer-events-none transition-opacity duration-700"
+  >
+    <span class="text-[#A39E93]/60 text-[9px] tracking-[0.3em] uppercase mb-4"
+      >Scroll to open</span
+    >
+    <div class="w-[1px] h-12 bg-[#A39E93]/20 overflow-hidden relative">
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-[#C5A059] animate-[scrollLine_2.5s_ease-in-out_infinite] origin-top"
+      >
       </div>
-    </div>
-
-    <!-- Stage 2: Mid-scroll -->
-    <div id="stage2" class="absolute text-center opacity-0 transition-opacity duration-300">
-      <p class="text-amber-100/50 text-sm font-light mb-4">what lies beyond</p>
-      <p class="text-amber-100/30 text-xs">unfolds before you</p>
-    </div>
-
-    <!-- Stage 3: Near end -->
-    <div id="stage3" class="absolute text-center opacity-0 transition-opacity duration-300">
-      <p class="text-amber-100/80 text-lg font-light italic">welcome home</p>
     </div>
   </div>
 </div>
 
 <style>
-  @keyframes slideOutLeft {
+  @keyframes scrollLine {
     0% {
-      transform: translateX(0);
+      transform: scaleY(0);
+      transform-origin: top;
+      opacity: 0;
+    }
+    30% {
+      transform: scaleY(1);
+      transform-origin: top;
       opacity: 1;
     }
-    100% {
-      transform: translateX(-130%);
-      opacity: 0;
-    }
-  }
-
-  @keyframes slideOutRight {
-    0% {
-      transform: translateX(0);
-      opacity: 1;
+    31% {
+      transform-origin: bottom;
     }
     100% {
-      transform: translateX(130%);
+      transform: scaleY(0);
+      transform-origin: bottom;
       opacity: 0;
     }
-  }
-
-  @keyframes slideInLeft {
-    0% {
-      transform: translateX(-130%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideInRight {
-    0% {
-      transform: translateX(130%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes pillarGlow {
-    0% {
-      opacity: 0;
-      height: 0;
-    }
-    50% {
-      opacity: 0.6;
-    }
-    100% {
-      opacity: 1;
-      height: 100%;
-    }
-  }
-
-  @keyframes pillarFade {
-    0% {
-      opacity: 1;
-      height: 100%;
-    }
-    100% {
-      opacity: 0;
-      height: 0;
-    }
-  }
-
-  @keyframes centralExpand {
-    0% {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.5);
-    }
-    100% {
-      opacity: 0.8;
-      transform: translate(-50%, -50%) scale(1);
-    }
-  }
-
-  @keyframes centralCollapse {
-    0% {
-      opacity: 0.8;
-      transform: translate(-50%, -50%) scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.5);
-    }
-  }
-
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes splashFadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      pointer-events: none;
-    }
-  }
-
-  @keyframes splashFadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  /* Initial entrance animations */
-  #splash #gateLeft {
-    /* NO ANIMATION - static at start */
-  }
-
-  #splash #gateRight {
-    /* NO ANIMATION - static at start */
-  }
-
-  #splash #scrollPrompt {
-    display: none; /* Hide scroll prompt */
   }
 </style>
 
 <script>
-  // Create particle effect
-  function createParticles() {
-    const container = document.getElementById('particlesContainer');
-    if (!container) return;
+  function initSplash() {
+    const splash = document.getElementById("splash");
+    if (!splash) return;
 
-    for (let i = 0; i < 40; i++) {
-      const particle = document.createElement('div');
-      const size = Math.random() * 3 + 1;
-      const x = Math.random() * 100;
-      const y = Math.random() * 100;
-      const duration = Math.random() * 20 + 20;
-      const delay = Math.random() * 3;
+    // Reset display and overflow in case of Astro view transitions soft navigation
+    splash.style.display = "block";
+    document.body.style.overflow = "hidden";
 
-      particle.style.cssText = `
-        position: absolute;
-        width: ${size}px;
-        height: ${size}px;
-        background: radial-gradient(circle, rgba(217,119,6,1) 0%, rgba(180,83,9,0.6) 70%, transparent 100%);
-        border-radius: 50%;
-        left: ${x}%;
-        top: ${y}%;
-        opacity: ${Math.random() * 0.6 + 0.3};
-        animation: float ${duration}s linear ${delay}s infinite;
-        pointer-events: none;
-        box-shadow: 0 0 ${size * 2}px rgba(217,119,6,0.8);
-      `;
-      container.appendChild(particle);
+    let virtualScroll = 0;
+    const maxScroll = 12000;
+    let isFinished = false;
+
+    const gateLeft = document.getElementById("gateLeft");
+    const gateRight = document.getElementById("gateRight");
+    const gateEmblem = document.getElementById("gateEmblem");
+
+    const innerJournal = document.getElementById("innerJournal");
+    const stageFoundation = document.getElementById("stageFoundation");
+    const stageVision = document.getElementById("stageVision");
+    const scrollPrompt = document.getElementById("scrollPrompt");
+
+    // Wayang Story Stages — Kisah Karna (8 stages)
+    const sS1 = document.getElementById("stageStory1");
+    const sS2 = document.getElementById("stageStory2");
+    const sS3 = document.getElementById("stageStory3");
+    const sS4 = document.getElementById("stageStory4");
+    const sS5 = document.getElementById("stageStory5");
+    const sS6 = document.getElementById("stageStory6");
+    const sS7 = document.getElementById("stageStory7");
+    const sS8 = document.getElementById("stageStory8");
+
+    let musOn = false;
+    const mus = document.getElementById("splashMusic");
+    if (mus) {
+      mus.pause();
+      mus.currentTime = 0;
     }
 
-    // Add float animation if not exists
-    if (!document.querySelector('style[data-particles]')) {
-      const style = document.createElement('style');
-      style.setAttribute('data-particles', 'true');
-      style.textContent = `
-        @keyframes float {
-          0% {
-            transform: translateY(0) translateX(0);
-            opacity: 0;
-          }
-          10% {
-            opacity: 0.6;
-          }
-          90% {
-            opacity: 0.6;
-          }
-          100% {
-            transform: translateY(-100vh) translateX(50px);
-            opacity: 0;
-          }
+    function mapStg(el, p, s, e) {
+      if (!el) return;
+      let op = 0;
+      const f = (e - s) * 0.25;
+      if (p > s && p <= s + f) op = (p - s) / f;
+      else if (p > s + f && p <= e - f) op = 1;
+      else if (p > e - f && p <= e) op = 1 - (p - (e - f)) / f;
+
+      el.style.opacity = Math.max(0, op).toString();
+      if (op > 0) {
+        el.style.transform = `translateY(${(s + (e - s) / 2 - p) * 300}px)`;
+      }
+    }
+
+    function updateAnimationState() {
+      const progress = Math.min(virtualScroll / maxScroll, 1);
+
+      if (progress >= 0.99 && !isFinished) {
+        isFinished = true;
+        document.body.style.overflow = "";
+        if (mus) {
+          let v = mus.volume;
+          const fadeInt = setInterval(() => {
+            v -= 0.1;
+            if (v <= 0) {
+              clearInterval(fadeInt);
+              mus.pause();
+              mus.currentTime = 0;
+            } else {
+              mus.volume = v;
+            }
+          }, 30);
         }
-      `;
-      document.head.appendChild(style);
+        setTimeout(() => {
+          splash.style.display = "none";
+        }, 500);
+        return;
+      }
+
+      if (progress < 1) {
+        if (progress > 0.05 && !musOn && mus) {
+          musOn = true;
+          mus.volume = 0;
+          mus
+            .play()
+            .then(() => {
+              let v = 0;
+              const f = setInterval(() => {
+                v += 0.05;
+                if (v >= 0.6) {
+                  clearInterval(f);
+                  v = 0.6;
+                }
+                mus.volume = v;
+              }, 200);
+            })
+            .catch(() => {
+              // Browser blocked autoplay (user hasn't interacted yet)
+              const unlockAudio = () => {
+                if (progress < 0.95) {
+                   mus.volume = 0.6;
+                   mus.play().catch(()=>{});
+                }
+                document.removeEventListener("click", unlockAudio);
+                document.removeEventListener("touchstart", unlockAudio);
+                document.removeEventListener("keydown", unlockAudio);
+              };
+              document.addEventListener("click", unlockAudio);
+              document.addEventListener("touchstart", unlockAudio);
+              document.addEventListener("keydown", unlockAudio);
+            });
+        }
+
+        // --- Prompt Fade ---
+        if (scrollPrompt) {
+          scrollPrompt.style.opacity = progress > 0.02 ? "0" : "1";
+        }
+
+        // --- OVERLAY GATES (0.0 to 0.15) ---
+        let gateOp = 0;
+        if (progress <= 0.15) {
+          gateOp = progress / 0.15;
+          gateOp = gateOp * gateOp;
+        } else {
+          gateOp = 1;
+        }
+
+        if (gateLeft)
+          gateLeft.style.transform = `translateX(-${gateOp * 105}%)`;
+        if (gateRight)
+          gateRight.style.transform = `translateX(${gateOp * 105}%)`;
+
+        if (gateEmblem) {
+          gateEmblem.style.opacity = progress > 0.05 ? "0" : "1";
+        }
+
+        mapStg(stageFoundation, progress, 0.05, 0.2);
+        mapStg(stageVision, progress, 0.18, 0.33);
+
+        // Kisah Karna — 8 stages
+        mapStg(sS1, progress, 0.31, 0.415); // III. Kelahiran yang Dibuang
+        mapStg(sS2, progress, 0.4, 0.515); // IV.  Sang Suta Putra
+        mapStg(sS3, progress, 0.49, 0.615); // V.   Sumpah Persaudaraan
+        mapStg(sS4, progress, 0.58, 0.705); // VI.  Pelucutan Kavacha-Kundala
+        mapStg(sS5, progress, 0.67, 0.77); // VII. Fajar Kurukshetra
+        mapStg(sS6, progress, 0.72, 0.8); // VIII. Panah Terakhir
+        mapStg(sS7, progress, 0.77, 0.84); // IX.  Wahyu yang Terlambat
+        mapStg(sS8, progress, 0.82, 0.885); // X.   Warisan Abadi
+
+        // --- DISSOLVE INNER JOURNAL (0.885 to 0.995) ---
+        if (innerJournal) {
+          let journalOp = 1;
+          if (progress > 0.885) {
+            journalOp = 1 - (progress - 0.885) / 0.11;
+          }
+          innerJournal.style.opacity = Math.max(
+            0,
+            Math.min(1, journalOp),
+          ).toString();
+        }
+      }
     }
+
+    const onWheel = (e) => {
+      if (isFinished) return;
+      virtualScroll += e.deltaY * 0.9;
+      if (virtualScroll < 0) virtualScroll = 0;
+      if (virtualScroll > maxScroll) virtualScroll = maxScroll;
+      updateAnimationState();
+    };
+
+    let touchStartY = 0;
+    const onTouchStart = (e) => {
+      if (isFinished) return;
+      touchStartY = e.touches[0].clientY;
+      if (!musOn && mus) {
+        mus
+          .play()
+          .then(() => mus.pause())
+          .catch(() => {});
+      }
+    };
+
+    const onTouchMove = (e) => {
+      if (isFinished) return;
+      const touchY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchY;
+      touchStartY = touchY;
+
+      virtualScroll += deltaY * 3.5;
+      if (virtualScroll < 0) virtualScroll = 0;
+      if (virtualScroll > maxScroll) virtualScroll = maxScroll;
+
+      if (virtualScroll > 0 && virtualScroll < maxScroll) {
+        if (e.cancelable) e.preventDefault();
+      }
+      updateAnimationState();
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: true });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
   }
 
-  createParticles();
-
-  const splash = document.getElementById('splash');
-  const gateLeft = splash?.querySelector('#gateLeft');
-  const gateRight = splash?.querySelector('#gateRight');
-  const lightPillar = splash?.querySelector('#lightPillar');
-  const centerGlow = splash?.querySelector('#centerGlow');
-  const bgOverlay = splash?.querySelector('#bgOverlay');
-  const lightRays = splash?.querySelector('#lightRays');
-  const fadeOverlay = splash?.querySelector('#fadeOverlay');
+  // Load immediately on hard refresh
+  initSplash();
   
-  // Get text elements inside gates
-  const gateLeftContent = gateLeft?.querySelector('div:last-child');
-  const gateRightContent = gateRight?.querySelector('div:first-child');
-  
-  // Get progressive content stages
-  const stage1 = splash?.querySelector('#stage1');
-  const stage2 = splash?.querySelector('#stage2');
-  const stage3 = splash?.querySelector('#stage3');
-  
-  let hasFullyOpened = false;
-
-  // Scroll-linked animation - gates open/close based on scroll
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const maxScroll = 1000; // Longer scroll distance for smooth opening
-    const progress = Math.min(scrolled / maxScroll, 1); // 0 to 1
-    
-    // Once fully opened, start fade sequence ONCE
-    if (progress >= 0.95 && !hasFullyOpened) {
-      hasFullyOpened = true;
-      
-      // Animate page entry after fade completes (no scroll locking)
-      setTimeout(() => {
-        if (splash) {
-          splash.style.opacity = '0';
-          splash.style.pointerEvents = 'none';
-          splash.style.transition = 'opacity 1.2s ease-out';
-        }
-      }, 200);
-    }
-    
-    if (splash && progress > 0) {
-      // Background gradient shift - from dark blue to golden amber
-      const bgProgress = progress * 100;
-      bgOverlay.style.background = `linear-gradient(to bottom, 
-        rgba(180, 83, 9, ${progress * 0.3}), 
-        rgba(217, 119, 6, ${progress * 0.2}) 50%,
-        rgba(120, 53, 15, ${progress * 0.15}))`;
-      bgOverlay.style.opacity = `${progress * 0.6}`;
-      
-      // Move gates left and right based on scroll progress
-      const translateAmount = progress * 130; // Move up to 130%
-      
-      if (gateLeft) {
-        gateLeft.style.transform = `translateX(-${translateAmount}%)`;
-        gateLeft.style.opacity = `${1 - progress}`;
-      }
-      
-      if (gateRight) {
-        gateRight.style.transform = `translateX(${translateAmount}%)`;
-        gateRight.style.opacity = `${1 - progress}`;
-      }
-      
-      // Smooth fade out of text content inside gates
-      if (gateLeftContent) {
-        gateLeftContent.style.opacity = `${1 - progress}`;
-        gateLeftContent.style.transition = 'opacity 0.05s ease-out';
-      }
-      
-      if (gateRightContent) {
-        gateRightContent.style.opacity = `${1 - progress}`;
-        gateRightContent.style.transition = 'opacity 0.05s ease-out';
-      }
-      
-      // Enhanced light pillar - brighter and more dramatic
-      if (lightPillar) {
-        lightPillar.style.opacity = `${progress * 1.2}`; // Brighter
-        lightPillar.style.height = `${progress * 100}%`;
-        lightPillar.style.transition = 'opacity 0.05s ease-out, height 0.05s ease-out';
-        lightPillar.style.backgroundColor = `rgb(${Math.round(217 - 50 * progress)}, ${Math.round(119 + 80 * progress)}, ${Math.round(6 - 6 * progress)})`; // Shift to golden-white
-      }
-      
-      // Light rays effect
-      if (lightRays) {
-        lightRays.style.opacity = `${progress * 0.8}`;
-        lightRays.style.transition = 'opacity 0.05s ease-out';
-      }
-      
-      // Central glow - more dramatic
-      if (centerGlow) {
-        centerGlow.style.opacity = `${progress * 1.2}`; // Brighter
-        centerGlow.style.transform = `translate(-50%, -50%) scale(${0.5 + progress * 0.7})`;
-        centerGlow.style.transition = 'opacity 0.05s ease-out, transform 0.05s ease-out';
-        centerGlow.style.backgroundColor = `radial-gradient(circle, rgba(${Math.round(217 - 50 * progress)}, ${Math.round(119 + 80 * progress)}, 6, ${0.5 + progress * 0.3}) 0%, transparent 70%)`;
-      }
-      
-      // Progressive content reveal with better timing
-      const stageProgress = progress * 3; // 0 to 3
-      
-      if (stage1) {
-        stage1.style.opacity = `${Math.max(0, 1 - stageProgress)}`;
-      }
-      if (stage2) {
-        stage2.style.opacity = `${Math.max(0, Math.min(1, stageProgress - 0.5))}`;
-      }
-      if (stage3) {
-        stage3.style.opacity = `${Math.max(0, Math.min(1, stageProgress - 1.5))}`;
-      }
-      
-      // Fade overlay appears when gates fully open
-      if (progress >= 0.95) {
-        const fadeProgress = (progress - 0.95) / 0.05; // 0 to 1 from 95% to 100%
-        
-        if (fadeOverlay) {
-          fadeOverlay.style.opacity = `${fadeProgress}`;
-          fadeOverlay.style.background = `linear-gradient(to bottom,
-            rgba(217, 119, 6, ${fadeProgress * 0.3}),
-            rgba(180, 83, 9, ${fadeProgress * 0.4}),
-            rgba(120, 53, 15, ${fadeProgress * 0.25}))`;
-        }
-      }
-    } else if (progress === 0 && !hasFullyOpened) {
-      // Reset when scroll back up (but only if not fully opened yet)
-      if (gateLeft) {
-        gateLeft.style.transform = 'translateX(0)';
-        gateLeft.style.transition = 'transform 0.05s ease-out, opacity 0.05s ease-out';
-      }
-      if (gateRight) {
-        gateRight.style.transform = 'translateX(0)';
-        gateRight.style.transition = 'transform 0.05s ease-out, opacity 0.05s ease-out';
-      }
-      if (gateLeftContent) {
-        gateLeftContent.style.opacity = '1';
-        gateLeftContent.style.transition = 'opacity 0.05s ease-out';
-      }
-      if (gateRightContent) {
-        gateRightContent.style.opacity = '1';
-        gateRightContent.style.transition = 'opacity 0.05s ease-out';
-      }
-      if (lightPillar) {
-        lightPillar.style.opacity = '0';
-        lightPillar.style.height = '0';
-        lightPillar.style.transition = 'opacity 0.05s ease-out, height 0.05s ease-out';
-      }
-      if (centerGlow) {
-        centerGlow.style.opacity = '0';
-        centerGlow.style.transform = 'translate(-50%, -50%) scale(0.5)';
-        centerGlow.style.transition = 'opacity 0.05s ease-out, transform 0.05s ease-out';
-      }
-      if (lightRays) {
-        lightRays.style.opacity = '0';
-        lightRays.style.transition = 'opacity 0.05s ease-out';
-      }
-      if (bgOverlay) {
-        bgOverlay.style.opacity = '0';
-        bgOverlay.style.transition = 'opacity 0.05s ease-out';
-      }
-      if (fadeOverlay) {
-        fadeOverlay.style.opacity = '0';
-        fadeOverlay.style.transition = 'opacity 0.05s ease-out';
-      }
-      
-      // Reset content stages
-      if (stage1) stage1.style.opacity = '1';
-      if (stage2) stage2.style.opacity = '0';
-      if (stage3) stage3.style.opacity = '0';
-      
-      if (splash) {
-        splash.style.opacity = '1';
-        splash.style.pointerEvents = 'auto';
-      }
-    }
-  }, { passive: true });
+  // Re-run script when Astro internal ViewTransitions happen
+  document.addEventListener("astro:page-load", initSplash);
 </script>

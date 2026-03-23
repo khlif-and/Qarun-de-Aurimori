@@ -1,74 +1,233 @@
 ---
 ---
 
-<section class="w-full bg-[#fbfcfd] py-24 md:py-32 px-6 flex justify-center" id="works">
-  <div class="max-w-[1200px] w-full flex flex-col gap-12">
+<section id="portfolio-3d" class="relative w-full bg-[#050505] py-40 md:py-60 px-6 flex justify-center perspective-container overflow-hidden border-t border-[#C5A059]/20">
+  
+  <!-- THREE.JS STYLE 3D SCENE (Mantras + Wayang Kulit) -->
+  <div id="three-scene" class="absolute inset-0 pointer-events-none z-0" style="transform-style: preserve-3d;">
     
-    <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-      <div class="flex flex-col gap-3">
-        <span class="text-[#3cbce6] text-xs font-bold tracking-[0.2em] uppercase">Portfolio</span>
-        <h2 class="text-4xl md:text-5xl text-[#1e293b] font-serif" style="font-family: 'Playfair Display', serif;">
-          Selected Works
-        </h2>
-      </div>
-      <a href="/archive" class="group flex items-center gap-2 text-sm font-bold text-[#1e293b] hover:text-[#3cbce6] transition-colors pb-1">
-        View Archive 
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </a>
+    <!-- 1. MANTRA JAWA LAYER (DEEP Z-SPACE) -->
+    <div class="scene-element absolute top-[-5%] left-[5%] text-[#C5A059] font-serif text-[150px] md:text-[250px] opacity-[0.08] mix-blend-screen drop-shadow-[0_0_30px_rgba(197,160,89,1)]" data-speed="1.2" data-z="-2500" data-rotate="-15">ꦲꦤꦕꦫꦏ</div>
+    
+    <div class="scene-element absolute top-[40%] right-[-5%] text-[#C5A059] font-serif text-[180px] md:text-[300px] opacity-[0.05] mix-blend-screen drop-shadow-[0_0_30px_rgba(197,160,89,1)]" data-speed="2.0" data-z="-3500" data-rotate="10">ꦢꦠꦱꦮꦭ</div>
+    
+    <div class="scene-element absolute bottom-[5%] left-[20%] text-[#C5A059] font-serif text-[120px] md:text-[200px] opacity-[0.06] mix-blend-screen drop-shadow-[0_0_30px_rgba(197,160,89,1)]" data-speed="0.8" data-z="-1800" data-rotate="-5">ꦥꦣꦗꦪꦚ</div>
+
+    <!-- 2. WAYANG KULIT LAYER (MID Z-SPACE) -->
+    <!-- Giant Center Gunungan (Kayon) -->
+    <div class="scene-element absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[1200px] opacity-[0.12] mix-blend-screen" data-speed="0.3" data-z="-1200" data-rotate="0">
+      <svg viewBox="0 0 100 200" class="w-full h-full drop-shadow-[0_0_40px_rgba(197,160,89,1)]">
+        <path d="M50 10 C80 50, 95 100, 95 150 C95 180, 75 190, 50 190 C25 190, 5 180, 5 150 C5 100, 20 50, 50 10 Z" fill="none" stroke="#C5A059" stroke-width="0.3"/>
+        <path d="M50 25 C65 60, 80 100, 80 145 C80 170, 65 180, 50 180 C35 180, 20 170, 20 145 C20 100, 35 60, 50 25 Z" fill="none" stroke="#C5A059" stroke-width="0.2" stroke-dasharray="1 1"/>
+        <path d="M50 40 C60 70, 70 100, 70 145 C70 160, 60 170, 50 170 C40 170, 30 160, 30 145 C30 100, 40 70, 50 40 Z" fill="none" stroke="#C5A059" stroke-width="0.1"/>
+        <circle cx="50" cy="140" r="25" fill="none" stroke="#C5A059" stroke-width="0.2"/>
+        <circle cx="50" cy="140" r="10" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+        <line x1="50" y1="190" x2="50" y2="10" stroke="#C5A059" stroke-width="0.2"/>
+        <circle cx="35" cy="160" r="3" fill="none" stroke="#C5A059" stroke-width="0.2"/>
+        <circle cx="65" cy="160" r="3" fill="none" stroke="#C5A059" stroke-width="0.2"/>
+        <path d="M20 140 Q50 110, 80 140" fill="none" stroke="#C5A059" stroke-width="0.2"/>
+      </svg>
     </div>
 
-    <!-- Asymmetrical Grid Gallery (Refactored to robust 2-column flex layout) -->
-    <div class="flex flex-col md:flex-row gap-6 md:gap-8 w-full mt-4">
+    <!-- Wayang Puppet Left (Arjuna Profile) -->
+    <div class="scene-element absolute top-[15%] left-[-25%] md:left-[-15%] w-[600px] h-[1200px] opacity-[0.2] mix-blend-screen" data-speed="1.6" data-z="-800" data-rotate="15">
+      <svg viewBox="0 0 200 400" class="w-full h-full drop-shadow-[0_0_30px_rgba(197,160,89,1)]">
+        <path d="M120 40 C140 20, 160 30, 170 50 C180 80, 150 110, 130 110 C100 110, 80 140, 70 200 C60 260, 80 320, 100 380 L80 400 L50 350 C30 280, 40 180, 60 130 C80 80, 100 60, 120 40 Z" fill="none" stroke="#C5A059" stroke-width="1"/>
+        <path d="M170 50 C190 45, 200 60, 190 80 C180 100, 150 100, 140 90" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+        <path d="M130 110 C160 140, 170 190, 150 250 L140 240 C150 190, 140 150, 120 130" fill="none" stroke="#C5A059" stroke-width="0.5" stroke-dasharray="3 3"/>
+        <path d="M70 200 C40 220, 20 260, 30 320" fill="none" stroke="#C5A059" stroke-width="0.5"/>
+        <circle cx="140" cy="70" r="5" fill="none" stroke="#C5A059" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <!-- Wayang Puppet Right (Bima Profile) -->
+    <div class="scene-element absolute top-[35%] right-[-25%] md:right-[-15%] w-[800px] h-[1400px] opacity-[0.25] mix-blend-screen scale-x-[-1]" data-speed="2.5" data-z="-1200" data-rotate="-20">
+      <svg viewBox="0 0 200 400" class="w-full h-full drop-shadow-[0_0_30px_rgba(197,160,89,1)]">
+        <path d="M100 30 C130 10, 160 20, 170 60 C180 100, 130 130, 110 130 C70 130, 50 170, 40 250 C30 330, 60 380, 80 400 L60 400 L30 330 C10 250, 20 150, 50 100 C70 60, 80 40, 100 30 Z" fill="none" stroke="#C5A059" stroke-width="1.5"/>
+        <path d="M170 60 C190 70, 190 100, 170 110 C150 120, 130 110, 120 100" fill="none" stroke="#C5A059" stroke-width="0.8"/>
+        <path d="M110 130 C150 170, 160 230, 130 300 L120 290 C140 230, 130 180, 100 150" fill="none" stroke="#C5A059" stroke-width="0.8" stroke-dasharray="4 4"/>
+        <circle cx="130" cy="80" r="8" fill="none" stroke="#C5A059" stroke-width="1"/>
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- Deep Mist Ambient -->
+  <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505] opacity-90 z-0 pointer-events-none"></div>
+
+  <!-- PORTFOLIO GRID -->
+  <div class="max-w-[1200px] w-full flex flex-col gap-16 md:gap-24 relative z-10" style="transform-style: preserve-3d;">
+    
+    <!-- Section Header -->
+    <div class="header-3d flex flex-col items-center text-center gap-4 border-b border-[#C5A059]/20 pb-10">
+      <span class="text-[#C5A059] text-[12px] md:text-sm font-light tracking-[0.8em] uppercase drop-shadow-[0_0_5px_rgba(197,160,89,1)]">Wayang of Construction</span>
+      <h2 class="text-5xl md:text-7xl text-[#F8F5F0] font-serif tracking-widest drop-shadow-[0_0_20px_rgba(197,160,89,0.5)]" style="font-family: 'Playfair Display', serif;">
+        Sacred <span class="text-[#C5A059] italic">Archives</span>
+      </h2>
+    </div>
+
+    <!-- Asymmetrical Grid Gallery with Dynamic JS Parallax -->
+    <div class="flex flex-col md:flex-row gap-8 md:gap-14 w-full mt-4" style="transform-style: preserve-3d;">
       
-      <!-- Left Column (Skyscraper & Dark Architecture) -->
-      <div class="flex flex-col gap-6 md:gap-8 w-full md:w-[45%]">
-        <!-- Item 1: Tall Skyscraper -->
-        <div class="group overflow-hidden rounded-xl bg-slate-100 relative cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 h-[450px] md:h-[650px] w-full">
-          <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
-            alt="Modern skyscraper architectural detail" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-          />
-          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+      <!-- Left Column -->
+      <div class="flex flex-col gap-10 md:gap-20 w-full md:w-[45%] portfolio-col" data-speed="0.08" style="transform-style: preserve-3d;">
+        <!-- Item 1 -->
+        <div class="portfolio-card group overflow-hidden rounded-sm bg-[#0a0a0a] relative cursor-pointer shadow-[0_20px_60px_rgba(0,0,0,1)] hover:shadow-[0_0_50px_rgba(197,160,89,0.4)] transition-shadow duration-700 h-[500px] md:h-[700px] w-full border border-[#C5A059]/15 hover:border-[#C5A059]/60">
+          <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Sacred Architecture" class="img-parallax w-full h-full object-cover opacity-50 group-hover:opacity-100 mix-blend-luminosity scale-125 transition-opacity duration-700" />
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-90 group-hover:opacity-50 transition-opacity duration-700 pointer-events-none"></div>
+          
+          <div class="absolute bottom-10 left-10 flex flex-col gap-3 pointer-events-none">
+            <span class="text-[#C5A059] text-[10px] tracking-[0.5em] uppercase font-light">ꦮꦔꦸꦤꦤ꧀ I</span>
+            <span class="text-[#F8F5F0] font-serif text-3xl tracking-widest drop-shadow-[0_0_10px_rgba(0,0,0,1)] group-hover:text-[#C5A059] transition-colors duration-500">The Iron Heavens</span>
+          </div>
         </div>
 
-        <!-- Item 3: Dark Concrete Architecture -->
-        <div class="group overflow-hidden rounded-xl bg-slate-100 relative cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 h-[350px] md:h-[400px] w-full">
-          <img 
-            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2000&auto=format&fit=crop" 
-            alt="Dark concrete architecture curves" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-          />
-          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+        <!-- Item 3 -->
+        <div class="portfolio-card group overflow-hidden rounded-sm bg-[#0a0a0a] relative cursor-pointer shadow-[0_20px_60px_rgba(0,0,0,1)] hover:shadow-[0_0_50px_rgba(197,160,89,0.4)] transition-shadow duration-700 h-[400px] md:h-[500px] w-full border border-[#C5A059]/15 hover:border-[#C5A059]/60">
+          <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2000&auto=format&fit=crop" alt="Dark architecture" class="img-parallax w-full h-full object-cover opacity-50 group-hover:opacity-100 mix-blend-luminosity scale-125 transition-opacity duration-700" />
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-90 group-hover:opacity-50 transition-opacity duration-700 pointer-events-none"></div>
+          <div class="absolute bottom-10 left-10 flex flex-col gap-3 pointer-events-none">
+            <span class="text-[#C5A059] text-[10px] tracking-[0.5em] uppercase font-light">ꦮꦔꦸꦤꦤ꧀ II</span>
+            <span class="text-[#F8F5F0] font-serif text-3xl tracking-widest drop-shadow-[0_0_10px_rgba(0,0,0,1)] group-hover:text-[#C5A059] transition-colors duration-500">Obsidian Curves</span>
+          </div>
         </div>
       </div>
 
-      <!-- Right Column (White Room & Cabin) -->
-      <div class="flex flex-col gap-6 md:gap-8 w-full md:w-[55%] md:pt-16">
-        <!-- Item 2: White Minimalist Room -->
-        <div class="group overflow-hidden rounded-xl bg-slate-100 relative cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 h-[350px] md:h-[450px] w-full">
-          <img 
-            src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" 
-            alt="Minimalist room with light shadows" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-          />
-          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+      <!-- Right Column -->
+      <div class="flex flex-col gap-10 md:gap-20 w-full md:w-[55%] md:pt-40 portfolio-col" data-speed="0.2" style="transform-style: preserve-3d;">
+        <!-- Item 2 -->
+        <div class="portfolio-card group overflow-hidden rounded-sm bg-[#0a0a0a] relative cursor-pointer shadow-[0_20px_60px_rgba(0,0,0,1)] hover:shadow-[0_0_50px_rgba(197,160,89,0.4)] transition-shadow duration-700 h-[400px] md:h-[500px] w-full border border-[#C5A059]/15 hover:border-[#C5A059]/60">
+          <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" alt="Minimalist Room" class="img-parallax w-full h-full object-cover opacity-50 group-hover:opacity-100 mix-blend-luminosity scale-125 transition-opacity duration-700" />
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-90 group-hover:opacity-50 transition-opacity duration-700 pointer-events-none"></div>
+          <div class="absolute bottom-10 left-10 flex flex-col gap-3 pointer-events-none">
+            <span class="text-[#C5A059] text-[10px] tracking-[0.5em] uppercase font-light">ꦮꦔꦸꦤꦤ꧀ III</span>
+            <span class="text-[#F8F5F0] font-serif text-3xl tracking-widest drop-shadow-[0_0_10px_rgba(0,0,0,1)] group-hover:text-[#C5A059] transition-colors duration-500">Void of Light</span>
+          </div>
         </div>
 
-        <!-- Item 4: Cabin on Green Hill -->
-        <div class="group overflow-hidden rounded-xl bg-slate-100 relative cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 h-[400px] md:h-[550px] w-full">
-          <img 
-            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop" 
-            alt="Moody cabin on a green hill with fog" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-          />
-          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+        <!-- Item 4 -->
+        <div class="portfolio-card group overflow-hidden rounded-sm bg-[#0a0a0a] relative cursor-pointer shadow-[0_20px_60px_rgba(0,0,0,1)] hover:shadow-[0_0_50px_rgba(197,160,89,0.4)] transition-shadow duration-700 h-[450px] md:h-[650px] w-full border border-[#C5A059]/15 hover:border-[#C5A059]/60">
+          <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop" alt="Moody cabin" class="img-parallax w-full h-full object-cover opacity-50 group-hover:opacity-100 mix-blend-luminosity scale-125 transition-opacity duration-700" />
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-90 group-hover:opacity-50 transition-opacity duration-700 pointer-events-none"></div>
+          <div class="absolute bottom-10 left-10 flex flex-col gap-3 pointer-events-none">
+            <span class="text-[#C5A059] text-[10px] tracking-[0.5em] uppercase font-light">ꦮꦔꦸꦤꦤ꧀ IV</span>
+            <span class="text-[#F8F5F0] font-serif text-3xl tracking-widest drop-shadow-[0_0_10px_rgba(0,0,0,1)] group-hover:text-[#C5A059] transition-colors duration-500">The Hermit's Shrine</span>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<style>
+  .perspective-container {
+    perspective: 2500px;
+  }
+  .scene-element, .portfolio-col, .img-parallax, .header-3d {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+</style>
+
+<script>
+  let isTicking = false;
+  let targetScroll = 0;
+  let currentScroll = 0;
+
+  const init3DScrollScene = () => {
+    const section = document.getElementById('portfolio-3d');
+    if (!section) return;
+
+    const sceneElements = section.querySelectorAll('.scene-element');
+    const cols = section.querySelectorAll('.portfolio-col');
+    const imgs = section.querySelectorAll('.img-parallax');
+    const header = section.querySelector('.header-3d');
+
+    const lerp = (start, end, factor) => start + (end - start) * factor;
+
+    const renderScene = () => {
+      currentScroll = lerp(currentScroll, targetScroll, 0.08);
+
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const sectionTop = currentScroll + rect.top;
+      
+      const rawProgress = 1 - ((sectionTop + rect.height - currentScroll) / (windowHeight + rect.height));
+      const p = Math.max(0, Math.min(1, rawProgress)); 
+      const pCentered = p - 0.5;
+
+      // Move Background Scene Elements (Mantras & Wayang)
+      sceneElements.forEach((el) => {
+        const speed = parseFloat(el.getAttribute('data-speed') || '1');
+        const baseZ = parseFloat(el.getAttribute('data-z') || '0');
+        const baseRotate = parseFloat(el.getAttribute('data-rotate') || '0');
+
+        const zMove = baseZ + (p * 3500 * speed);
+        const yMove = pCentered * -500 * speed;
+        const xRotate = pCentered * 45 * speed;
+
+        const floatY = Math.sin(currentScroll * 0.002 + baseZ) * 30;
+
+        let elDom = el as HTMLElement;
+        if(elDom) elDom.style.transform = `translate3d(0, calc(${yMove}px + ${floatY}px), ${zMove}px) rotateX(${xRotate}deg) rotateY(${baseRotate}deg)`;
+      });
+
+      // Parallax Columns
+      cols.forEach((col) => {
+        const speed = parseFloat(col.getAttribute('data-speed') || '0.1');
+        const yMove = pCentered * -1500 * speed; 
+        const rotateY = pCentered * 10; 
+        const zMove = p * 400 * speed;
+        
+        let elDom = col as HTMLElement;
+        if(elDom) elDom.style.transform = `translate3d(0, ${yMove}px, ${speed * 800 + zMove}px) rotateY(${rotateY}deg)`;
+      });
+
+      // Image Parallax
+      imgs.forEach((img) => {
+        const yOffset = pCentered * 300; 
+        let elDom = img as HTMLElement;
+        if(elDom) elDom.style.transform = `scale(1.3) translateY(${yOffset}px)`;
+      });
+
+      // Header Parallax
+      if (header) {
+        let elDom = header as HTMLElement;
+        if(elDom) elDom.style.transform = `translate3d(0, ${pCentered * -250}px, ${pCentered * 400}px)`;
+      }
+
+      if (Math.abs(targetScroll - currentScroll) > 0.1) {
+        window.requestAnimationFrame(renderScene);
+      } else {
+        isTicking = false;
+      }
+    };
+
+    const updateTargetScroll = () => {
+      targetScroll = window.scrollY;
+      if (!isTicking) {
+        isTicking = true;
+        window.requestAnimationFrame(renderScene);
+      }
+    };
+
+    window.addEventListener('scroll', updateTargetScroll, { passive: true, capture: true });
+    
+    targetScroll = window.scrollY;
+    currentScroll = window.scrollY;
+    renderScene();
+  };
+
+  document.addEventListener('DOMContentLoaded', init3DScrollScene);
+  document.addEventListener('astro:page-load', init3DScrollScene);
+  setTimeout(init3DScrollScene, 100);
+</script>
