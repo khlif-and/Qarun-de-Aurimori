@@ -1,0 +1,27 @@
+---
+import MantraCircle from "../atoms/MantraCircle.astro";
+---
+
+<div
+  id="gateEmblem"
+  class="absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300"
+>
+  <div
+    class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 mix-blend-screen z-0 animate-[spin_60s_linear_infinite]"
+  >
+    <MantraCircle
+      pathId="emblemMantra"
+      text="ꦏꦼꦱꦸꦚꦶꦪꦤ꧀ ꦲꦶꦁ ꦱꦼꦧꦭꦶꦏ꧀ ꦕꦲꦪ ꦢꦤ꧀ ꦧꦪꦔꦤ꧀ ꦏꦼꦱꦸꦚꦶꦪꦤ꧀ ꦲꦶꦁ ꦱꦼꦧꦭꦶꦏ꧀ ꦕꦲꦪ ꦢꦤ꧀ ꦧꦪꦔꦤ꧀"
+      svgClass="w-[150%] h-[150%] md:w-[80vw] md:h-[80vw] max-w-[800px] max-h-[800px] drop-shadow-[0_0_15px_rgba(197,160,89,0.4)]"
+    />
+  </div>
+
+  <span class="text-[#C5A059] tracking-[0.4em] text-[10px] md:text-xs uppercase mb-6 font-light opacity-80 z-50">Maison</span>
+  <h1
+    class="text-[50px] md:text-[80px] lg:text-[110px] text-[#F8F5F0] font-serif tracking-normal leading-none z-50"
+    style="font-family: 'Playfair Display', serif;"
+  >
+    Qarun
+  </h1>
+  <p class="text-[#A39E93] tracking-[0.2em] text-sm md:text-base font-serif italic z-50 mt-8">de Aurimori</p>
+</div>

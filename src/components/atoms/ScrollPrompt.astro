@@ -1,0 +1,17 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label = "Scroll to open" } = Astro.props;
+---
+
+<div
+  id="scrollPrompt"
+  class="absolute inset-x-0 bottom-8 z-[60] flex flex-col items-center pointer-events-none transition-opacity duration-700"
+>
+  <span class="text-[#A39E93]/60 text-[9px] tracking-[0.3em] uppercase mb-4">{label}</span>
+  <div class="w-[1px] h-12 bg-[#A39E93]/20 overflow-hidden relative">
+    <div class="absolute top-0 left-0 w-full h-full bg-[#C5A059] animate-[scrollLine_2.5s_ease-in-out_infinite] origin-top"></div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+---
+interface Props {
+  side: "left" | "right";
+  mantra: string;
+}
+
+const { side, mantra } = Astro.props;
+
+const isLeft = side === "left";
+const gateId = isLeft ? "gateLeft" : "gateRight";
+const posClasses = isLeft
+  ? "absolute left-0 top-0 w-1/2 h-full bg-[#0a0a0a] border-r-[2px] border-[#C5A059]/50 flex items-center justify-end overflow-hidden will-change-transform shadow-[15px_0_50px_rgba(0,0,0,0.95)]"
+  : "absolute right-0 top-0 w-1/2 h-full bg-[#0a0a0a] border-l-[2px] border-[#C5A059]/50 flex items-center justify-start overflow-hidden will-change-transform shadow-[-15px_0_50px_rgba(0,0,0,0.95)]";
+const borderClasses = isLeft
+  ? "absolute inset-4 md:inset-8 border border-[#C5A059]/20 border-r-0"
+  : "absolute inset-4 md:inset-8 border border-[#C5A059]/20 border-l-0";
+const circleClasses = isLeft
+  ? "absolute right-0 translate-x-1/2 flex items-center justify-center opacity-20"
+  : "absolute left-0 -translate-x-1/2 flex items-center justify-center opacity-20";
+const mantraClasses = isLeft
+  ? "absolute right-8 md:right-16 top-1/2 -translate-y-1/2 flex flex-col items-center opacity-40"
+  : "absolute left-8 md:left-16 top-1/2 -translate-y-1/2 flex flex-col items-center opacity-40";
+const noiseId = isLeft ? "n1" : "n2";
+---
+
+<div id={gateId} class={posClasses}>
+  <div
+    class="absolute inset-0 opacity-[0.04]"
+    style={`background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22${noiseId}%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23${noiseId})%22/%3E%3C/svg%3E');`}
+  ></div>
+  <div class={borderClasses}></div>
+  <div class={circleClasses}>
+    <div class="w-72 h-72 border border-[#C5A059] rounded-full"></div>
+  </div>
+  <div class={mantraClasses}>
+    <span
+      class="text-[#C5A059] text-lg md:text-2xl font-serif tracking-[0.5em]"
+      style="writing-mode: vertical-rl; text-orientation: upright;"
+    >{mantra}</span>
+  </div>
+</div>
