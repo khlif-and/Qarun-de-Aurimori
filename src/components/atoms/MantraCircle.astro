@@ -1,0 +1,30 @@
+---
+interface Props {
+  pathId: string;
+  text: string;
+  radius?: number;
+  fontSize?: string;
+  svgClass?: string;
+}
+
+const {
+  pathId,
+  text,
+  radius = 150,
+  fontSize = "text-[11px] md:text-[12px]",
+  svgClass = "",
+} = Astro.props;
+
+const d = `M ${200},${200 - radius} a ${radius},${radius} 0 1,1 0,${radius * 2} a ${radius},${radius} 0 1,1 0,-${radius * 2}`;
+---
+
+<svg viewBox="0 0 400 400" class={svgClass}>
+  <path id={pathId} d={d} fill="none"></path>
+  <text>
+    <textPath
+      href={`#${pathId}`}
+      startOffset="0%"
+      class={`${fontSize} fill-[#C5A059] font-serif tracking-[0.5em]`}
+    >{text}</textPath>
+  </text>
+</svg>

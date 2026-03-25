@@ -1,0 +1,26 @@
+---
+interface Props {
+  id: string;
+  mantra: string;
+  stageLabel: string;
+}
+
+const { id, mantra, stageLabel } = Astro.props;
+---
+
+<div
+  id={id}
+  class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 px-6 sm:px-10 text-center will-change-transform"
+>
+  <slot name="illustration" />
+
+  <span class="text-[#C5A059] tracking-[0.5em] text-xs sm:text-sm md:text-base font-serif opacity-50 mb-3 sm:mb-4 shrink-0">
+    {mantra}
+  </span>
+
+  <slot />
+
+  <p class="text-[#A39E93] tracking-[0.6em] text-[9px] md:text-[11px] uppercase mt-6 sm:mt-10 font-light shrink-0">
+    {stageLabel}
+  </p>
+</div>
